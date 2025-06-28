@@ -119,3 +119,4 @@ func revive(restore_health: int = 100):
 		print("P1 Pan角色复活，生命值恢复到: ", health)
 	else:
 		print("P1 Pan角色未死亡，无需复活")
+		
