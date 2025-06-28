@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dm0tqw3y8nhis"
-path="res://.godot/imported/milk-idle-Sheet.png-1573d6e66f8c1e502404bdbce6c8378a.ctex"
+uid="uid://ctpwrar87wy87"
+path="res://.godot/imported/pan-skill-fading-Sheet.png-3e5cf2f91841f03fbdeb93a55c10ee58.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprite sheet/milk/idle/milk-idle-Sheet.png"
-dest_files=["res://.godot/imported/milk-idle-Sheet.png-1573d6e66f8c1e502404bdbce6c8378a.ctex"]
+source_file="res://asset/sprite sheet/pan/pan-skill-fading-Sheet.png"
+dest_files=["res://.godot/imported/pan-skill-fading-Sheet.png-3e5cf2f91841f03fbdeb93a55c10ee58.ctex"]
 
 [params]
 

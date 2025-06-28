@@ -267,7 +267,7 @@ height = 46.0
 scale = Vector2(2, 2)
 script = ExtResource("1_w3co7")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["tools"]]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1rvb7")
 animation = &"walk_down"
 autoplay = "idle"
