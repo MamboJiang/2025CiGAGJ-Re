@@ -1,0 +1,80 @@
+[gd_scene load_steps=2 format=3 uid="uid://dasdxuy3hxiq6"]
+
+[ext_resource type="Script" uid="uid://ciwkld22hfwd3" path="res://ui/Menu/about_page.gd" id="1_fl5jy"]
+
+[node name="AboutPage" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_fl5jy")
+
+[node name="title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -199.5
+offset_top = 130.0
+offset_right = 199.5
+offset_bottom = 221.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 66
+text = "GAME NAME"
+
+[node name="player1intro" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -201.0
+offset_right = -267.0
+offset_bottom = -91.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "玩家1
+‘W’ ‘A’ ‘S’ ‘D’"
+horizontal_alignment = 1
+
+[node name="player2intro" type="Label" parent="."]
+custom_minimum_size = Vector2(0, 453)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 375.0
+offset_top = -208.0
+offset_right = 684.0
+offset_bottom = 245.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 36
+text = "玩家2
+‘↑’ ‘↓’ ‘←’ ‘→’"
+horizontal_alignment = 1
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -81.5
+offset_top = -168.0
+offset_right = 81.5
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 31
+text = "返回主菜单"
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
