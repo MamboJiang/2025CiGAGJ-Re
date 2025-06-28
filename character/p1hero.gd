@@ -10,7 +10,15 @@ var number=1
 #哪一方的
 var side=1
 
-
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+func disappear():
+	self.hide()
+	collision_shape_2d.set_deferred("disabled",1)
+func appear(pos):
+	self.position=pos
+	self.show()
+	collision_shape_2d.set_deferred("disabled",0)
+	
 func _physics_process(delta):
 	# 只有当父节点的p1selected为1时才检测输入
 	if get_parent().p1selected != 1:
