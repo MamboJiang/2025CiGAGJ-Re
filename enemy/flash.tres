@@ -1,9 +1,0 @@
-[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://5ux61p1lucfr"]
-
-[ext_resource type="Shader" path="res://enemy/flash.gdshader" id="1_p33mt"]
-
-[resource]
-resource_local_to_scene = true
-shader = ExtResource("1_p33mt")
-shader_parameter/flash_color = Color(1, 1, 1, 1)
-shader_parameter/flash_opacity = 0.0
