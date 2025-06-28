@@ -88,6 +88,10 @@ position = Vector2(0, 2.5)
 shape = SubResource("CircleShape2D_cl8tm")
 target_position = Vector2(-0.5, 18)
 
+[node name="change_timer" type="Timer" parent="p1hero"]
+wait_time = 0.5
+one_shot = true
+
 [node name="p2hero" parent="." instance=ExtResource("4_weknq")]
 position = Vector2(1563, 324)
 
@@ -95,6 +99,10 @@ position = Vector2(1563, 324)
 position = Vector2(0, 2.5)
 shape = SubResource("CircleShape2D_cl8tm")
 target_position = Vector2(-0.5, 18)
+
+[node name="change_timer" type="Timer" parent="p2hero"]
+wait_time = 0.5
+one_shot = true
 
 [node name="p1knife" parent="." instance=ExtResource("5_12x6b")]
 position = Vector2(396, 654)

@@ -14,6 +14,8 @@ extends Node2D
 @onready var p1pan: CharacterBody2D = $p1pan
 @onready var p1milk: CharacterBody2D = $p1milk
 @onready var p2milk: CharacterBody2D = $p2milk
+@onready var p1_change_timer: Timer = $p1hero/change_timer
+@onready var p2_change_timer: Timer = $p2hero/change_timer
 
 var p1_object
 var p2_object
@@ -21,6 +23,9 @@ var p2_object
 func _input(event):
 	# 检测p1change按键（1键）
 	if Input.is_action_just_pressed("p1change"):
+		if not p1_change_timer.is_stopped():
+			return
+		p1_change_timer.start()
 		match (p1selected):
 			1:
 				if p1hero.get_collider()!=null&& p1hero.get_collider().side==1:
@@ -48,6 +53,9 @@ func _input(event):
 	
 	# 检测p2change按键（2键）
 	if Input.is_action_just_pressed("p2change"):
+		if not p2_change_timer.is_stopped():
+			return
+		p2_change_timer.start()
 		match (p2selected):
 			1:
 				if p2hero.get_collider()!=null&& p2hero.get_collider().side==2:
