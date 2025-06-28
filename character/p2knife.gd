@@ -5,6 +5,11 @@ extends CharacterBody2D
 var dir = Vector2.ZERO
 var speed = 700
 
+#数字
+var number=2
+#哪一方的
+var side=2
+
 func _physics_process(delta):
 	# 只有当父节点的p1selected为1时才检测输入
 	if get_parent().p2selected != 2:
@@ -55,3 +60,10 @@ func update_animation():
 	else:
 		# 没有移动时播放待机动画
 		playerAni.play("idle")
+
+@onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
+func get_collider():
+	if shape_cast_2d.is_colliding():
+		return shape_cast_2d.get_collider(0)
+	else:
+		return null
