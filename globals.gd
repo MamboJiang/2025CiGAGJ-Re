@@ -18,7 +18,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_esc"):
+	if Input.is_action_just_pressed("ui_esc") and get_tree().current_scene.scene_file_path != "res://ui/Menu/start_menu.tscn":
 		back_to_title()
 
 func _animate_transition_to(path):
