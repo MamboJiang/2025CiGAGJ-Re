@@ -37,7 +37,7 @@ func _input(event):
 	if Input.is_action_just_pressed("p2change"):
 		match (p2selected):
 			1:
-				if p2hero.get_collider()!=null&& p1hero.get_collider().side==2:
+				if p2hero.get_collider()!=null&& p2hero.get_collider().side==2:
 					p2selected=p2hero.get_collider().number
 			2:
 				if p2knife.get_collider()!=null&& p2knife.get_collider().side==2:
