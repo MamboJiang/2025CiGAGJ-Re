@@ -111,11 +111,23 @@ func _on_death_animation_finished():
 
 # 复活函数
 func revive(restore_health: int = 100):
+	# 复活角色
 	if is_dead:
+		# 重置死亡状态
 		is_dead = false
 		death_animation_played = false
+		
+		# 恢复生命值
 		health = restore_health
+		
+		# 播放待机动画
 		playerAni.play("idle")
-		print("P2 Pan角色复活，生命值恢复到: ", health)
+		
+		# 打印复活信息
+		print("角色复活，生命值恢复到: ", health)
 	else:
-		print("P2 Pan角色未死亡，无需复活")
+		print("角色还活着，无需复活")
+
+# 返回角色是否死亡的状态
+func is_character_dead() -> bool:
+	return is_dead
