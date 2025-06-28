@@ -2,24 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-<<<<<<< HEAD
-uid="uid://bisuf0ikiqrio"
-=======
-uid="uid://bxnsyjnu3otsk"
->>>>>>> 7d5cc35bbbb2e799f3aea144e1829849ca7e2167
-=======
-uid="uid://blqb1vx25t2og"
->>>>>>> origin/main
-path="res://.godot/imported/kitchen knife-death-Sheet.png-a69aac1a0f17adb0299ce31e841b6b9e.ctex"
+uid="uid://dycy2jkbiet5m"
+path="res://.godot/imported/newbackground.png-e18ee794e40a8cb5a8b835bc4484142d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprite sheet/tool/kitchen knife-death-Sheet.png"
-dest_files=["res://.godot/imported/kitchen knife-death-Sheet.png-a69aac1a0f17adb0299ce31e841b6b9e.ctex"]
+source_file="res://asset/background/newbackground.png"
+dest_files=["res://.godot/imported/newbackground.png-e18ee794e40a8cb5a8b835bc4484142d.ctex"]
 
 [params]
 
