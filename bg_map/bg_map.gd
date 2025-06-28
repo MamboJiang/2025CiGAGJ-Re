@@ -18,43 +18,35 @@ extends Node2D
 func _input(event):
 	# 检测p1change按键（1键）
 	if Input.is_action_just_pressed("p1change"):
-		# 轮次切换p1selected的值：1->2->3->4->1
-		#p1selected += 1
-		#if p1selected > 4:
-			#p1selected = 1
 		match (p1selected):
 			1:
-				if p1hero.get_collider()!=null:
+				if p1hero.get_collider()!=null&& p1hero.get_collider().side==1:
 					p1selected=p1hero.get_collider().number
 			2:
-				if p1knife.get_collider()!=null:
+				if p1knife.get_collider()!=null&& p1knife.get_collider().side==1:
 					p1selected=p1knife.get_collider().number
 			3:
-				if p1pan.get_collider()!=null:
+				if p1pan.get_collider()!=null&& p1pan.get_collider().side==1:
 					p1selected=p1pan.get_collider().number
 			4:
-				if p1milk.get_collider()!=null:
+				if p1milk.get_collider()!=null&& p1milk.get_collider().side==1:
 					p1selected=p1milk.get_collider().number
 		print("P1 切换到: ", p1selected)
 	
 	# 检测p2change按键（2键）
 	if Input.is_action_just_pressed("p2change"):
-		# 轮次切换p2selected的值：1->2->3->4->1
-		#p2selected += 1
-		#if p2selected > 4:
-			#p2selected = 1
 		match (p2selected):
 			1:
-				if p2hero.get_collider()!=null:
+				if p2hero.get_collider()!=null&& p1hero.get_collider().side==2:
 					p2selected=p2hero.get_collider().number
 			2:
-				if p2knife.get_collider()!=null:
+				if p2knife.get_collider()!=null&& p2knife.get_collider().side==2:
 					p2selected=p2knife.get_collider().number
 			3:
-				if p2pan.get_collider()!=null:
+				if p2pan.get_collider()!=null&& p2pan.get_collider().side==2:
 					p2selected=p2pan.get_collider().number
 			4:
-				if p2milk.get_collider()!=null:
+				if p2milk.get_collider()!=null&& p2milk.get_collider().side==2:
 					p2selected=p2milk.get_collider().number
 				
 		print("P2 切换到: ", p2selected)
