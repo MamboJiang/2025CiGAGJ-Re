@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dkwltwm2ku8wq"]
+[gd_scene load_steps=3 format=3 uid="uid://dkwltwm2ku8wq"]
 
 [ext_resource type="Script" uid="uid://dwkpy8sw3ivto" path="res://ui/Menu/start_menu.gd" id="1_fpt6v"]
+[ext_resource type="Texture2D" uid="uid://dpf481kgp5dgh" path="res://asset/background/background1.png" id="2_qjbx0"]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -55,6 +56,11 @@ text = "About"
 layout_mode = 2
 theme_override_font_sizes/font_size = 31
 text = "Quit"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1, 0.747222)
+texture = ExtResource("2_qjbx0")
 
 [connection signal="pressed" from="ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/AboutButton" to="." method="_on_about_button_pressed"]
