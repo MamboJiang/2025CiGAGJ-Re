@@ -5,13 +5,27 @@ extends CharacterBody2D
 var dir = Vector2.ZERO
 var speed = 700
 
+#生命
+var health = 100
+
 #数字
 var number=1
 #哪一方的
 var side=1
 
+#死亡状态
+var is_dead = false
+var death_animation_played = false
+
 
 func _physics_process(delta):
+	# 检查角色是否死亡
+	check_death()
+	
+	# 如果角色已死亡，不处理移动
+	if is_dead:
+		return
+	
 	# 只有当父节点的p1selected为1时才检测输入
 	if get_parent().p1selected != 1:
 		return
@@ -68,3 +82,51 @@ func get_collider():
 		return shape_cast_2d.get_collider(0)
 	else:
 		return null
+
+func get_attacked():
+	health = health - 20
+	# 受到攻击后检查死亡状态
+	check_death()
+
+func check_death():
+	# 如果生命值小于等于0且还没有死亡
+	if health <= 0 and not is_dead:
+		is_dead = true
+		play_death_animation()
+		print("角色死亡")
+
+func play_death_animation():
+	# 如果死亡动画还没播放过
+	if not death_animation_played:
+		death_animation_played = true
+		# 播放死亡动画（假设动画名为"death"）
+		playerAni.play("death")
+		# 连接动画完成信号，确保动画只播放一次
+		if not playerAni.animation_finished.is_connected(_on_death_animation_finished):
+			playerAni.animation_finished.connect(_on_death_animation_finished)
+
+func _on_death_animation_finished():
+	# 死亡动画播放完成后，停止在最后一帧
+	if playerAni.animation == "death":
+		playerAni.stop()
+		# 断开信号连接，避免重复触发
+		if playerAni.animation_finished.is_connected(_on_death_animation_finished):
+			playerAni.animation_finished.disconnect(_on_death_animation_finished)
+
+func revive(restore_health: int = 100):
+	# 复活角色
+	if is_dead:
+		# 重置死亡状态
+		is_dead = false
+		death_animation_played = false
+		
+		# 恢复生命值
+		health = restore_health
+		
+		# 播放待机动画
+		playerAni.play("idle")
+		
+		# 打印复活信息
+		print("角色复活，生命值恢复到: ", health)
+	else:
+		print("角色还活着，无需复活")

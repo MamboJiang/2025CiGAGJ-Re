@@ -5,12 +5,26 @@ extends CharacterBody2D
 var dir = Vector2.ZERO
 var speed = 700
 
+#生命
+var health = 100
+
 #数字
 var number=2
 #哪一方的
 var side=2
 
+# 死亡状态管理
+var is_dead = false
+var death_animation_played = false
+
 func _physics_process(delta):
+	# 检查死亡状态
+	check_death()
+	
+	# 如果角色死亡，停止移动
+	if is_dead:
+		return
+	
 	# 只有当父节点的p1selected为1时才检测输入
 	if get_parent().p2selected != 2:
 		return
@@ -67,3 +81,41 @@ func get_collider():
 		return shape_cast_2d.get_collider(0)
 	else:
 		return null
+
+func get_attacked():
+	health = health - 20
+	# 受到攻击后检查是否死亡
+	check_death()
+
+# 检查角色是否死亡
+func check_death():
+	if health <= 0 and not is_dead:
+		is_dead = true
+		play_death_animation()
+		print("P2 Knife角色死亡")
+
+# 播放死亡动画
+func play_death_animation():
+	if not death_animation_played:
+		death_animation_played = true
+		playerAni.play("death")
+		# 连接动画完成信号
+		if not playerAni.animation_finished.is_connected(_on_death_animation_finished):
+			playerAni.animation_finished.connect(_on_death_animation_finished)
+
+# 死亡动画播放完成后的处理
+func _on_death_animation_finished():
+	if is_dead and playerAni.animation == "death":
+		playerAni.stop()
+		print("P2 Knife死亡动画播放完成")
+
+# 复活函数
+func revive(restore_health: int = 100):
+	if is_dead:
+		is_dead = false
+		death_animation_played = false
+		health = restore_health
+		playerAni.play("idle")
+		print("P2 Knife角色复活，生命值恢复到: ", health)
+	else:
+		print("P2 Knife角色未死亡，无需复活")
