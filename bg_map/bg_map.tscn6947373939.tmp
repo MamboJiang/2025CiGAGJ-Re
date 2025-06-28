@@ -1,0 +1,229 @@
+[gd_scene load_steps=20 format=3 uid="uid://1ic2aejdjrtj"]
+
+[ext_resource type="Script" uid="uid://dkab1ojrr053s" path="res://bg_map/bg_map.gd" id="1_0evb0"]
+[ext_resource type="Texture2D" uid="uid://dycy2jkbiet5m" path="res://asset/background/newbackground.png" id="2_cl8tm"]
+[ext_resource type="PackedScene" uid="uid://dtj17t8yvfpkp" path="res://character/p1hero.tscn" id="3_weknq"]
+[ext_resource type="PackedScene" uid="uid://b581x0fb6ue18" path="res://character/p2hero.tscn" id="4_weknq"]
+[ext_resource type="PackedScene" uid="uid://tgf2b7fkfys2" path="res://character/p1knife.tscn" id="5_12x6b"]
+[ext_resource type="PackedScene" uid="uid://cs4pf401evktc" path="res://character/p2knife.tscn" id="6_3s32r"]
+[ext_resource type="Texture2D" uid="uid://cs7lbfx1y5c4" path="res://asset/ui/health/health bar.png" id="6_ivxwu"]
+[ext_resource type="PackedScene" uid="uid://bvoo02stkdnhk" path="res://character/p2pan.tscn" id="7_3s32r"]
+[ext_resource type="Texture2D" uid="uid://cseolilxm876i" path="res://asset/ui/health/health.png" id="7_i1j5m"]
+[ext_resource type="PackedScene" uid="uid://bblgwqtnpbmga" path="res://character/p1pan.tscn" id="8_n1hf1"]
+[ext_resource type="PackedScene" uid="uid://bpuw6y5vf0u4n" path="res://character/p1milk.tscn" id="9_cl8tm"]
+[ext_resource type="PackedScene" uid="uid://dr5yxbkio6t01" path="res://character/p2milk.tscn" id="10_ubgvt"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivxwu"]
+3:1/0 = 0
+4:1/0 = 0
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_ubgvt"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_ivxwu")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cl8tm"]
+radius = 28.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eruho"]
+atlas = ExtResource("6_ivxwu")
+region = Rect2(32, 59, 64, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syi25"]
+atlas = ExtResource("7_i1j5m")
+region = Rect2(35, 62, 58, 4)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubgvt"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ivxwu"]
+radius = 40.0
+
+[node name="bg_map" type="Node2D"]
+script = ExtResource("1_0evb0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("2_cl8tm")
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(4.8, 4.8)
+tile_set = SubResource("TileSet_ubgvt")
+format = 2
+layer_0/name = "bg1"
+layer_0/tile_data = PackedInt32Array(196615, 196608, 3, 262152, 196608, 3, 327689, 196608, 3, 327690, 196608, 3, 393227, 196608, 3, 393228, 196608, 3, 458765, 196608, 3, 458766, 196608, 3, 458767, 196608, 3, 524304, 196608, 3, 524305, 196608, 3, 589841, 196608, 3, 589842, 196608, 3, 196609, 196608, 3, 262145, 196608, 3, 327681, 196608, 3, 393217, 196608, 3, 458753, 196608, 3, 524289, 196608, 3, 589825, 196608, 3, 196610, 196608, 3, 262146, 196608, 3, 327682, 196608, 3, 393218, 196608, 3, 458754, 196608, 3, 524290, 196608, 3, 589826, 196608, 3, 196611, 196608, 3, 262147, 196608, 3, 327683, 196608, 3, 393219, 196608, 3, 458755, 196608, 3, 524291, 196608, 3, 589827, 196608, 3, 196612, 196608, 3, 262148, 196608, 3, 327684, 196608, 3, 393220, 196608, 3, 458756, 196608, 3, 524292, 196608, 3, 589828, 196608, 3, 196613, 196608, 3, 262149, 196608, 3, 327685, 196608, 3, 393221, 196608, 3, 458757, 196608, 3, 524293, 196608, 3, 589829, 196608, 3, 196614, 196608, 3, 262150, 196608, 3, 327686, 196608, 3, 393222, 196608, 3, 458758, 196608, 3, 524294, 196608, 3, 589830, 196608, 3, 262151, 196608, 3, 327687, 196608, 3, 393223, 196608, 3, 458759, 196608, 3, 524295, 196608, 3, 589831, 196608, 3, 196616, 196608, 3, 327688, 196608, 3, 393224, 196608, 3, 458760, 196608, 3, 524296, 196608, 3, 589832, 196608, 3, 196617, 196608, 3, 262153, 196608, 3, 393225, 196608, 3, 458761, 196608, 3, 524297, 196608, 3, 589833, 196608, 3, 196618, 196608, 3, 262154, 196608, 3, 393226, 196608, 3, 458762, 196608, 3, 524298, 196608, 3, 589834, 196608, 3, 196619, 196608, 3, 262155, 196608, 3, 327691, 196608, 3, 458763, 196608, 3, 524299, 196608, 3, 589835, 196608, 3, 196620, 196608, 3, 262156, 196608, 3, 327692, 196608, 3, 458764, 196608, 3, 524300, 196608, 3, 589836, 196608, 3, 196621, 196608, 3, 262157, 196608, 3, 327693, 196608, 3, 393229, 196608, 3, 524301, 196608, 3, 589837, 196608, 3, 196622, 196608, 3, 262158, 196608, 3, 327694, 196608, 3, 393230, 196608, 3, 524302, 196608, 3, 589838, 196608, 3, 196623, 196608, 3, 262159, 196608, 3, 327695, 196608, 3, 393231, 196608, 3, 524303, 196608, 3, 589839, 196608, 3, 196624, 196608, 3, 262160, 196608, 3, 327696, 196608, 3, 393232, 196608, 3, 458768, 196608, 3, 589840, 196608, 3, 196625, 196608, 3, 262161, 196608, 3, 327697, 196608, 3, 393233, 196608, 3, 458769, 196608, 3, 196626, 196608, 3, 262162, 196608, 3, 327698, 196608, 3, 393234, 196608, 3, 458770, 196608, 3, 524306, 196608, 3, 655361, 196608, 3, 655362, 196608, 3, 655363, 196608, 3, 655364, 196608, 3, 655379, 196608, 3, 655380, 196608, 3, 655378, 196608, 3, 655377, 196608, 3, 655376, 196608, 3, 655375, 196608, 3, 655374, 196608, 3, 655373, 196608, 3, 655372, 196608, 3, 655371, 196608, 3, 655370, 196608, 3, 655369, 196608, 3, 655368, 196608, 3, 655367, 196608, 3, 655366, 196608, 3, 655365, 196608, 3, 720898, 196608, 3, 720897, 196608, 3, 786433, 196608, 3, 786434, 196608, 3, 720899, 196608, 3, 720900, 196608, 3, 720901, 196608, 3, 786436, 196608, 3, 786435, 196608, 3, 786437, 196608, 3, 786438, 196608, 3, 786439, 196608, 3, 786440, 196608, 3, 720902, 196608, 3, 720903, 196608, 3, 720904, 196608, 3, 720905, 196608, 3, 720906, 196608, 3, 786441, 196608, 3, 786442, 196608, 3, 786443, 196608, 3, 786444, 196608, 3, 786445, 196608, 3, 786446, 196608, 3, 720910, 196608, 3, 720909, 196608, 3, 720908, 196608, 3, 720907, 196608, 3, 720911, 196608, 3, 786447, 196608, 3, 786448, 196608, 3, 786449, 196608, 3, 786450, 196608, 3, 720912, 196608, 3, 720913, 196608, 3, 720914, 196608, 3, 720915, 196608, 3, 720916, 196608, 3, 786452, 196608, 3, 786451, 196608, 3, 786453, 196608, 3, 786454, 196608, 3, 786455, 196608, 3, 720919, 196608, 3, 655383, 196608, 3, 655382, 196608, 3, 589846, 196608, 3, 589847, 196608, 3, 524311, 196608, 3, 458775, 196608, 3, 393239, 196608, 3, 327703, 196608, 3, 327702, 196608, 3, 262166, 196608, 3, 196630, 196608, 3, 196631, 196608, 3, 262167, 196608, 3, 393238, 196608, 3, 393237, 196608, 3, 458773, 196608, 3, 524309, 196608, 3, 589845, 196608, 3, 655381, 196608, 3, 720918, 196608, 3, 720917, 196608, 3, 589844, 196608, 3, 589843, 196608, 3, 524308, 196608, 3, 524307, 196608, 3, 458771, 196608, 3, 458772, 196608, 3, 393236, 196608, 3, 458774, 196608, 3, 327701, 196608, 3, 262165, 196608, 3, 262164, 196608, 3, 327700, 196608, 3, 327699, 196608, 3, 262163, 196608, 3, 393235, 196608, 3, 196627, 196608, 3, 196628, 196608, 3, 196629, 196608, 3, 196608, 196608, 3, 262144, 196608, 3, 327680, 196608, 3, 393216, 196608, 3, 458752, 196608, 3, 524288, 196608, 3, 589824, 196608, 3, 655360, 196608, 3, 720896, 196608, 3, 786432, 196608, 3, 851968, 196608, 3, 851969, 196608, 3, 851970, 196608, 3, 851971, 196608, 3, 851972, 196608, 3, 851973, 196608, 3, 851974, 196608, 3, 851975, 196608, 3, 851976, 196608, 3, 851977, 196608, 3, 851978, 196608, 3, 851979, 196608, 3, 851980, 196608, 3, 851981, 196608, 3, 851982, 196608, 3, 851983, 196608, 3, 851984, 196608, 3, 851985, 196608, 3, 851986, 196608, 3, 851987, 196608, 3, 851988, 196608, 3, 851989, 196608, 3, 851990, 196608, 3, 851991, 196608, 3, 851992, 196608, 3, 786456, 196608, 3, 720920, 196608, 3, 655384, 196608, 3, 589848, 196608, 3, 524312, 196608, 3, 458776, 196608, 3, 393240, 196608, 3, 327704, 196608, 3, 262168, 196608, 3, 196632, 196608, 3, 131072, 196608, 3, 131073, 196608, 3, 65536, 196608, 3, 65537, 196608, 3)
+layer_1/name = "wall"
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(0, 131072, 2, 2, 131072, 2, 3, 131072, 2, 4, 131072, 2, 5, 131072, 2, 6, 131072, 2, 7, 131072, 2, 8, 131072, 2, 9, 131072, 2, 10, 131072, 2, 11, 131072, 2, 12, 131072, 2, 13, 131072, 2, 14, 131072, 2, 15, 131072, 2, 16, 131072, 2, 17, 131072, 2, 18, 131072, 2, 1, 131072, 2, 19, 131072, 2, 20, 131072, 2, 21, 131072, 2, 22, 131072, 2, 23, 131072, 2, 24, 131072, 2, 917505, 131072, 2, 917506, 131072, 2, 917507, 131072, 2, 917508, 131072, 2, 917509, 131072, 2, 917510, 131072, 2, 917511, 131072, 2, 917512, 131072, 2, 917513, 131072, 2, 917514, 131072, 2, 917515, 131072, 2, 917516, 131072, 2, 917517, 131072, 2, 917518, 131072, 2, 917519, 131072, 2, 917520, 131072, 2, 917521, 131072, 2, 917522, 131072, 2, 917523, 131072, 2, 917524, 131072, 2, 917525, 131072, 2, 917526, 131072, 2, 917527, 131072, 2, 1376255, 131072, 2, 917504, 131072, 2, 917528, 131072, 2, 196607, 131072, 2, 262143, 131072, 2, 327679, 131072, 2, 393215, 131072, 2, 458751, 131072, 2, 524287, 131072, 2, 589823, 131072, 2, 655359, 131072, 2, 720895, 131072, 2, 786431, 131072, 2, 851967, 131072, 2, 917503, 131072, 2, 983039, 131072, 2, 65535, 131072, 2, 65561, 131072, 2, 131097, 131072, 2, 196633, 131072, 2, 262169, 131072, 2, 327705, 131072, 2, 393241, 131072, 2, 458777, 131072, 2, 524313, 131072, 2, 589849, 131072, 2, 655385, 131072, 2, 720921, 131072, 2, 786457, 131072, 2, 851993, 131072, 2, 917529, 131072, 2, 25, 131072, 2, 131071, 131072, 2, 65538, 131072, 2, 131074, 131072, 2, 131075, 131072, 2, 131076, 131072, 2, 131077, 131072, 2, 131078, 131072, 2, 131079, 131072, 2, 131080, 131072, 2, 131081, 131072, 2, 131082, 131072, 2, 131083, 131072, 2, 131084, 131072, 2, 131085, 131072, 2, 131086, 131072, 2, 131087, 131072, 2, 131088, 131072, 2, 131089, 131072, 2, 131090, 131072, 2, 131091, 131072, 2, 131092, 131072, 2, 131093, 131072, 2, 131094, 131072, 2, 131095, 131072, 2, 131096, 131072, 2, 65560, 131072, 2, 65559, 131072, 2, 65558, 131072, 2, 65557, 131072, 2, 65556, 131072, 2, 65555, 131072, 2, 65554, 131072, 2, 65553, 131072, 2, 65552, 131072, 2, 65551, 131072, 2, 65550, 131072, 2, 65549, 131072, 2, 65548, 131072, 2, 65547, 131072, 2, 65546, 131072, 2, 65545, 131072, 2, 65544, 131072, 2, 65543, 131072, 2, 65542, 131072, 2, 65541, 131072, 2, 65540, 131072, 2, 65539, 131072, 2)
+
+[node name="p1hero" parent="." instance=ExtResource("3_weknq")]
+position = Vector2(395, 311)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="p1hero"]
+position = Vector2(0, 2.5)
+shape = SubResource("CircleShape2D_cl8tm")
+target_position = Vector2(-0.5, 18)
+
+[node name="change_timer" type="Timer" parent="p1hero"]
+wait_time = 0.5
+one_shot = true
+
+[node name="p2hero" parent="." instance=ExtResource("4_weknq")]
+position = Vector2(1563, 324)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="p2hero"]
+position = Vector2(0, 2.5)
+shape = SubResource("CircleShape2D_cl8tm")
+target_position = Vector2(-0.5, 18)
+
+[node name="change_timer" type="Timer" parent="p2hero"]
+wait_time = 0.5
+one_shot = true
+
+[node name="p1knife" parent="." instance=ExtResource("5_12x6b")]
+position = Vector2(396, 654)
+scale = Vector2(1.5, 1.5)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="p1knife"]
+position = Vector2(10, -34)
+shape = SubResource("CircleShape2D_cl8tm")
+target_position = Vector2(-0.666656, 60)
+
+[node name="cd_timer" type="Timer" parent="p1knife"]
+wait_time = 3.0
+one_shot = true
+
+[node name="cd_ui" type="RichTextLabel" parent="p1knife"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="health_bar" type="TextureProgressBar" parent="p1knife"]
+offset_left = -22.0
+offset_top = -70.0
+offset_right = 42.0
+offset_bottom = -60.0
+texture_under = SubResource("AtlasTexture_eruho")
+texture_progress = SubResource("AtlasTexture_syi25")
+texture_progress_offset = Vector2(3, 3)
+
+[node name="p2knife" parent="." instance=ExtResource("6_3s32r")]
+position = Vector2(1557, 649)
+scale = Vector2(1.5, 1.5)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="p2knife"]
+position = Vector2(10.6667, -36)
+shape = SubResource("CircleShape2D_cl8tm")
+target_position = Vector2(0, 62)
+
+[node name="cd_timer" type="Timer" parent="p2knife"]
+wait_time = 3.0
+one_shot = true
+
+[node name="cd_ui" type="RichTextLabel" parent="p2knife"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="health_bar" type="TextureProgressBar" parent="p2knife"]
+offset_left = -22.0
+offset_top = -70.0
+offset_right = 42.0
+offset_bottom = -60.0
+texture_under = SubResource("AtlasTexture_eruho")
+texture_progress = SubResource("AtlasTexture_syi25")
+texture_progress_offset = Vector2(3, 3)
+
+[node name="p2pan" parent="." instance=ExtResource("7_3s32r")]
+position = Vector2(1354, 620)
+scale = Vector2(1.5, 1.5)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="p2pan"]
+position = Vector2(0.666667, -0.666667)
+shape = SubResource("CircleShape2D_ubgvt")
+target_position = Vector2(0, 32.6667)
+
+[node name="health_bar" type="TextureProgressBar" parent="p2pan"]
+offset_left = -32.0
+offset_top = -54.0
+offset_right = 32.0
+offset_bottom = -44.0
+texture_under = SubResource("AtlasTexture_eruho")
+texture_progress = SubResource("AtlasTexture_syi25")
+texture_progress_offset = Vector2(3, 3)
+
+[node name="p1pan" parent="." instance=ExtResource("8_n1hf1")]
+position = Vector2(599, 634)
+scale = Vector2(1.5, 1.5)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="p1pan"]
+position = Vector2(0, -3.33333)
+shape = SubResource("CircleShape2D_ivxwu")
+target_position = Vector2(0.666656, 32)
+
+[node name="health_bar" type="TextureProgressBar" parent="p1pan"]
+offset_left = -32.0
+offset_top = -54.6667
+offset_right = 32.0
+offset_bottom = -44.6667
+texture_under = SubResource("AtlasTexture_eruho")
+texture_progress = SubResource("AtlasTexture_syi25")
+texture_progress_offset = Vector2(3, 3)
+
+[node name="p1milk" parent="." instance=ExtResource("9_cl8tm")]
+position = Vector2(595, 344)
+scale = Vector2(1.5, 1.5)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="p1milk"]
+position = Vector2(-0.666667, -28)
+shape = SubResource("CircleShape2D_cl8tm")
+target_position = Vector2(0.666687, 55.3333)
+
+[node name="health_bar" type="TextureProgressBar" parent="p1milk"]
+offset_left = -32.0
+offset_top = -64.6667
+offset_right = 32.0
+offset_bottom = -54.6667
+texture_under = SubResource("AtlasTexture_eruho")
+texture_progress = SubResource("AtlasTexture_syi25")
+texture_progress_offset = Vector2(3, 3)
+
+[node name="p2milk" parent="." instance=ExtResource("10_ubgvt")]
+position = Vector2(1362, 354)
+scale = Vector2(1.5, 1.5)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="p2milk"]
+position = Vector2(0, -28)
+shape = SubResource("CircleShape2D_cl8tm")
+target_position = Vector2(0.666687, 42)
+
+[node name="health_bar" type="TextureProgressBar" parent="p2milk"]
+offset_left = -32.0
+offset_top = -66.0
+offset_right = 32.0
+offset_bottom = -56.0
+texture_under = SubResource("AtlasTexture_eruho")
+texture_progress = SubResource("AtlasTexture_syi25")
+texture_progress_offset = Vector2(3, 3)

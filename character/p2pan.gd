@@ -24,45 +24,47 @@ func update_health():
 func _ready() -> void:
 	update_health()
 	
+var acceleration_time = 0.0
+var max_acceleration_time = 0.2 # 最大加速时间
+
 func _physics_process(delta):
+
 	# 检查死亡状态
 	check_death()
 	
 	# 如果角色死亡，停止移动
 	if is_dead:
 		return
-	
-	# 只有当父节点的p1selected为2时才检测输入
+
+	# 只有当父节点的p2selected为3时才检测输入
 	if get_parent().p2selected != 3:
 		return
-	
-	# 获取输入方向
-	dir = Vector2.ZERO
-	
-	# 检测p1按键输入
-	if Input.is_action_pressed("p2_right"):
-		dir.x += 1
-	if Input.is_action_pressed("p2_left"):
-		dir.x -= 1
-	if Input.is_action_pressed("p2_down"):
-		dir.y += 1
-	if Input.is_action_pressed("p2_up"):
-		dir.y -= 1
-	
-	# 标准化方向向量，防止对角线移动过快
-	if dir.length() > 0:
-		dir = dir.normalized()
-	
-	# 设置速度
-	velocity = dir * speed
+		
+	var input_dir = Input.get_vector("p2_left", "p2_right", "p2_up", "p2_down", false)
+	var direction = Vector2(input_dir.x, input_dir.y)
+	update_animation(input_dir)
+
+	if direction:
+		direction = direction.normalized()
+		acceleration_time = min(acceleration_time + delta, max_acceleration_time)
+		var acceleration_factor = sin((acceleration_time / max_acceleration_time) * PI / 2)
+		velocity.x = direction.x * speed * acceleration_factor
+		velocity.y = direction.y * speed * acceleration_factor
+		
+	else:
+		#没有输入的时候逐渐减速
+		acceleration_time = max(acceleration_time - delta, 0)
+		var deceleration_factor = cos((acceleration_time / max_acceleration_time) * PI / 2)
+		velocity.x = move_toward(velocity.x, 0, speed * deceleration_factor * delta * 10)
+		velocity.y = move_toward(velocity.y, 0, speed * deceleration_factor * delta * 10)
 	
 	# 应用移动
 	move_and_slide()
 	
 	# 处理动画
-	update_animation()
+	update_animation(input_dir)
 
-func update_animation():
+func update_animation(dir):
 	# 根据移动方向播放对应动画
 	if dir.length() > 0:
 		# 有移动时播放行走动画
