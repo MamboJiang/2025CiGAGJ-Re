@@ -1,6 +1,7 @@
 [gd_scene load_steps=21 format=3 uid="uid://bvoo02stkdnhk"]
 
 [ext_resource type="Script" uid="uid://blgval4qxh18a" path="res://character/p2pan.gd" id="1_d2aae"]
+[ext_resource type="Texture2D" uid="uid://0ondmgtgwqmn" path="res://character/assets/pan/pan-idle-Sheet.png" id="2_d2aae"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mcnke"]
 atlas = ExtResource("2_d2aae")
@@ -343,7 +344,7 @@ script = ExtResource("1_d2aae")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mudp3")
-animation = &"walk_down"
+animation = &"walk_up"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
