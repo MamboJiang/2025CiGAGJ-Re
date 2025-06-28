@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://tetiryg4a5ky"
+=======
+uid="uid://cejxt8ryv5txo"
+>>>>>>> Stashed changes
 path="res://.godot/imported/milk-healing-2-proccess-Sheet.png-112ff6d60a4a60b6aea202caf56b395e.ctex"
 metadata={
 "vram_texture": false

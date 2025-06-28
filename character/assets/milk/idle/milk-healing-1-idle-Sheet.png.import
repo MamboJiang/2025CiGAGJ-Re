@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://c2h43ptlslr7p"
-=======
-uid="uid://dfgcadgxfu7s3"
->>>>>>> Stashed changes
-path="res://.godot/imported/milk-healing-3-proccess-Sheet.png-6e2a051d279f697b7912cadf82e68d0f.ctex"
+uid="uid://c6rc0r20tce76"
+path="res://.godot/imported/milk-healing-1-idle-Sheet.png-b6d6faae83fabb268adac70cc76ca997.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprite sheet/milk/process/milk-healing-3-proccess-Sheet.png"
-dest_files=["res://.godot/imported/milk-healing-3-proccess-Sheet.png-6e2a051d279f697b7912cadf82e68d0f.ctex"]
+source_file="res://character/assets/milk/idle/milk-healing-1-idle-Sheet.png"
+dest_files=["res://.godot/imported/milk-healing-1-idle-Sheet.png-b6d6faae83fabb268adac70cc76ca997.ctex"]
 
 [params]
 

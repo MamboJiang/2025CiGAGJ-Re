@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://cpqf5hw6v7qxb"
+=======
+uid="uid://gdxodmg12732"
+>>>>>>> Stashed changes
 path="res://.godot/imported/pan-skill-Sheet.png-52f8e79a507415e48918c3ec95080638.ctex"
 metadata={
 "vram_texture": false

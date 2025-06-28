@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://cmobbc66wi4cu"
+=======
+uid="uid://753n7mdvs5b4"
+>>>>>>> Stashed changes
 path="res://.godot/imported/pan-idle-Sheet.png-1c08a1606fdb1601f1876520ac73a8c3.ctex"
 metadata={
 "vram_texture": false

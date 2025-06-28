@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://cxwvbh3p4j67g"
+=======
+uid="uid://d33x15yl67gsy"
+>>>>>>> Stashed changes
 path="res://.godot/imported/milk-empty-idle-Sheet.png-64ad9f693d65d2fb37709e07d358ca7b.ctex"
 metadata={
 "vram_texture": false
