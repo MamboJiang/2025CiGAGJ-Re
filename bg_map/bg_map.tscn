@@ -109,7 +109,7 @@ position = Vector2(396, 654)
 scale = Vector2(1.5, 1.5)
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="p1knife"]
-position = Vector2(10, -34)
+position = Vector2(0, -31.3333)
 shape = SubResource("CircleShape2D_cl8tm")
 target_position = Vector2(-0.666656, 60)
 
@@ -122,10 +122,10 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="health_bar" type="TextureProgressBar" parent="p1knife"]
-offset_left = -22.0
-offset_top = -70.0
-offset_right = 42.0
-offset_bottom = -60.0
+offset_left = -32.6667
+offset_top = -67.3333
+offset_right = 31.3333
+offset_bottom = -57.3333
 texture_under = SubResource("AtlasTexture_eruho")
 texture_progress = SubResource("AtlasTexture_syi25")
 texture_progress_offset = Vector2(3, 3)

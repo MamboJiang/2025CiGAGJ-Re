@@ -350,10 +350,10 @@ scale = Vector2(2, 2)
 script = ExtResource("1_ocvxt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-10, 4)
 sprite_frames = SubResource("SpriteFrames_1rvb7")
-animation = &"attack"
+animation = &"walk_left"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10, -3.75)
 shape = SubResource("RectangleShape2D_ocvxt")

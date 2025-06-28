@@ -350,10 +350,10 @@ scale = Vector2(2, 2)
 script = ExtResource("1_jxqo3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-10, 3.5)
 sprite_frames = SubResource("SpriteFrames_1rvb7")
-animation = &"walk_down"
+animation = &"walk_right"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(10, -3.25)
 shape = SubResource("RectangleShape2D_jxqo3")

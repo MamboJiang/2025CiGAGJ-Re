@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var cd_timer: Timer = $cd_timer
 @onready var cd_ui: RichTextLabel = $cd_ui
 @onready var health_bar: TextureProgressBar = $health_bar
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
 
@@ -22,6 +23,8 @@ var side=1
 var is_dead = false
 var death_animation_played = false
 
+var is_attack=false
+
 func update_health():
 	health_bar.value=health
 
@@ -35,11 +38,14 @@ func _physics_process(delta):
 
 	# 检查死亡状态
 	check_death()
+	check_attack()
 	
 	# 如果角色死亡，停止移动
 	if is_dead:
 		return
-
+	if is_attack:
+		return
+	
 	#显示cd
 	cd_ui.text="%.2f" % cd_timer.time_left
 
@@ -93,6 +99,7 @@ func update_animation(dir):
 	else:
 		# 没有移动时播放待机动画
 		playerAni.play("idle")
+		
 
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
 func get_collider():
@@ -106,8 +113,18 @@ func attack():
 	if get_collider()!=null:
 		if cd_timer.is_stopped():
 			cd_timer.start()
-			get_collider().get_attacked()
+			#延迟半秒扣血
+			await get_tree().create_timer(0.5).timeout
+			if get_collider() != null:  # 再次检查以防目标在这半秒内消失
+				get_collider().get_attacked()
 			print("attacked")
+			
+func check_attack():
+	if cd_timer.time_left>2:
+		playerAni.play("attack")
+		is_attack=1
+	else:
+		is_attack=0
 	
 
 func get_attacked():
