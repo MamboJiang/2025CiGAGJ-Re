@@ -76,7 +76,7 @@ shape = SubResource("CircleShape2D_cl8tm")
 target_position = Vector2(-0.5, 18)
 
 [node name="p2hero" parent="." instance=ExtResource("4_weknq")]
-position = Vector2(1563, 322)
+position = Vector2(1563, 324)
 
 [node name="ShapeCast2D" type="ShapeCast2D" parent="p2hero"]
 position = Vector2(0, 2.5)

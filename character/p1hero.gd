@@ -76,3 +76,6 @@ func get_collider():
 		return shape_cast_2d.get_collider(0)
 	else:
 		return null
+
+func get_attacked():
+	pass

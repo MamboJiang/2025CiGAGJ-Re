@@ -12,11 +12,11 @@ func _process(delta: float) -> void:
 
 
 func _on_start_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://bg_map/bg_map.tscn")
+	Globals.go_to_world("res://bg_map/bg_map.tscn")
 
 
 func _on_about_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://ui/Menu/about_page.tscn")
+	Globals.go_to_world("res://ui/Menu/about_page.tscn")
 
 
 
