@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://1ic2aejdjrtj"]
+[gd_scene load_steps=11 format=3 uid="uid://1ic2aejdjrtj"]
 
 [ext_resource type="Script" uid="uid://dkab1ojrr053s" path="res://bg_map/bg_map.gd" id="1_0evb0"]
 [ext_resource type="Texture2D" uid="uid://bynuqvb8n1phg" path="res://asset/sample resource/pan.png" id="1_qg5j4"]
 [ext_resource type="PackedScene" uid="uid://dtj17t8yvfpkp" path="res://character/p1hero.tscn" id="3_weknq"]
 [ext_resource type="PackedScene" uid="uid://b581x0fb6ue18" path="res://character/p2hero.tscn" id="4_weknq"]
+[ext_resource type="PackedScene" uid="uid://tgf2b7fkfys2" path="res://character/p1knife.tscn" id="5_12x6b"]
+[ext_resource type="PackedScene" uid="uid://cs4pf401evktc" path="res://character/p2knife.tscn" id="6_3s32r"]
+[ext_resource type="PackedScene" uid="uid://bvoo02stkdnhk" path="res://character/p2pan.tscn" id="7_3s32r"]
+[ext_resource type="PackedScene" uid="uid://bblgwqtnpbmga" path="res://character/p1pan.tscn" id="8_n1hf1"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tgcc6"]
 texture = ExtResource("1_qg5j4")
@@ -57,3 +61,17 @@ position = Vector2(395, 311)
 
 [node name="p2hero" parent="." instance=ExtResource("4_weknq")]
 position = Vector2(1514, 321)
+
+[node name="p1knife" parent="." instance=ExtResource("5_12x6b")]
+position = Vector2(396, 654)
+
+[node name="p2knife" parent="." instance=ExtResource("6_3s32r")]
+position = Vector2(1491, 603)
+
+[node name="p2pan" parent="." instance=ExtResource("7_3s32r")]
+position = Vector2(1080, 568)
+scale = Vector2(1.5, 1.5)
+
+[node name="p1pan" parent="." instance=ExtResource("8_n1hf1")]
+position = Vector2(599, 634)
+scale = Vector2(1.5, 1.5)

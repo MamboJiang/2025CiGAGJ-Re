@@ -462,7 +462,7 @@ height = 46.0
 scale = Vector2(2, 2)
 script = ExtResource("1_wgtgm")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." groups=["tools"]]
 sprite_frames = SubResource("SpriteFrames_1rvb7")
 animation = &"idle"
 autoplay = "idle"
