@@ -31,6 +31,8 @@ func _input(event):
 			4:
 				if p1milk.get_collider()!=null&& p1milk.get_collider().side==1:
 					p1selected=p1milk.get_collider().number
+		if p1selected!=1:
+			p1hero.disappear()
 		print("P1 切换到: ", p1selected)
 	
 	# 检测p2change按键（2键）
@@ -48,5 +50,6 @@ func _input(event):
 			4:
 				if p2milk.get_collider()!=null&& p2milk.get_collider().side==2:
 					p2selected=p2milk.get_collider().number
-				
+		if p2selected!=1:
+			p2hero.disappear()
 		print("P2 切换到: ", p2selected)
