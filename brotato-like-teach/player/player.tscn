@@ -1,0 +1,89 @@
+[gd_scene load_steps=11 format=3 uid="uid://dx4tsh7j25ahh"]
+
+[ext_resource type="Script" uid="uid://btw18u2p670dl" path="res://player/player.gd" id="1_0nee8"]
+[ext_resource type="Texture2D" uid="uid://cq6pvroax2fxv" path="res://player/assets/player1/player1-sheet.png" id="1_hj2v2"]
+[ext_resource type="PackedScene" uid="uid://bb2qtgc8y28jp" path="res://weapon/now_weapons.tscn" id="3_fnmws"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kliva"]
+atlas = ExtResource("1_hj2v2")
+region = Rect2(0, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n38bw"]
+atlas = ExtResource("1_hj2v2")
+region = Rect2(240, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hacao"]
+atlas = ExtResource("1_hj2v2")
+region = Rect2(480, 0, 240, 240)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_46bxr"]
+atlas = ExtResource("1_hj2v2")
+region = Rect2(720, 0, 240, 240)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oq74f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kliva")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n38bw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hacao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_46bxr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qcath"]
+radius = 61.0
+height = 216.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e55xu"]
+radius = 900.405
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
+z_index = 20
+scale = Vector2(0.65, 0.65)
+collision_mask = 3
+script = ExtResource("1_0nee8")
+
+[node name="playerAni" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1.08295, 1.00293)
+sprite_frames = SubResource("SpriteFrames_oq74f")
+autoplay = "default"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_qcath")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.9, 0.9)
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="stop" type="Area2D" parent="."]
+collision_mask = 24
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stop"]
+shape = SubResource("CapsuleShape2D_qcath")
+
+[node name="now_weapons" parent="." instance=ExtResource("3_fnmws")]
+
+[node name="drop_item_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="drop_item_area"]
+shape = SubResource("CircleShape2D_e55xu")
+debug_color = Color(0.811765, 0.858824, 0, 0.419608)
+
+[connection signal="body_entered" from="stop" to="." method="_on_stop_body_entered"]
+[connection signal="mouse_entered" from="stop" to="." method="_on_stop_mouse_entered"]
+[connection signal="mouse_exited" from="stop" to="." method="_on_stop_mouse_exited"]
+[connection signal="body_entered" from="drop_item_area" to="." method="_on_drop_item_area_body_entered"]

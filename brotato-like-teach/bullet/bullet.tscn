@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://jj74gqlm2uhq"]
+
+[ext_resource type="Texture2D" uid="uid://dhg30888472dg" path="res://bullet/assets/bullet1/bullet.png" id="1_8a3f5"]
+[ext_resource type="Script" uid="uid://bchlfa3b147gt" path="res://bullet/bullet.gd" id="1_byw0h"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v3ihk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_8a3f5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_x7r32"]
+radius = 31.4006
+
+[node name="bullet" type="CharacterBody2D"]
+z_index = 15
+scale = Vector2(0.5, 0.5)
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_byw0h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_v3ihk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_x7r32")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_x7r32")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
