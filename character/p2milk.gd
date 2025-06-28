@@ -1,6 +1,7 @@
 extends CharacterBody2D
 #p222222milk
 @onready var playerAni = $AnimatedSprite2D
+@onready var health_bar: TextureProgressBar = $health_bar
 
 var dir = Vector2.ZERO
 var speed = 700
@@ -17,6 +18,12 @@ var side=2
 var is_dead = false
 var death_animation_played = false
 
+func update_health():
+	health_bar.value=health
+
+func _ready() -> void:
+	update_health()
+	
 func _physics_process(delta):
 	# 检查死亡状态
 	check_death()
@@ -84,6 +91,7 @@ func get_collider():
 
 func get_attacked():
 	health = health - 20
+	update_health()
 	# 受到攻击后检查是否死亡
 	check_death()
 

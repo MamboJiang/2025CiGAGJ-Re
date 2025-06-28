@@ -1,6 +1,11 @@
 extends CharacterBody2D
 #p1111111knife
 @onready var playerAni = $AnimatedSprite2D
+@onready var cd_timer: Timer = $cd_timer
+@onready var cd_ui: RichTextLabel = $cd_ui
+@onready var health_bar: TextureProgressBar = $health_bar
+
+
 
 var dir = Vector2.ZERO
 var speed = 700
@@ -17,6 +22,12 @@ var side=1
 var is_dead = false
 var death_animation_played = false
 
+func update_health():
+	health_bar.value=health
+
+func _ready() -> void:
+	update_health()
+	
 func _physics_process(delta):
 	# 检查死亡状态
 	check_death()
@@ -24,6 +35,9 @@ func _physics_process(delta):
 	# 如果角色死亡，停止移动
 	if is_dead:
 		return
+	
+	#显示cd
+	cd_ui.text="%.2f" % cd_timer.time_left
 	
 	# 只有当父节点的p1selected为1时才检测输入
 	if get_parent().p1selected != 2:
@@ -41,6 +55,10 @@ func _physics_process(delta):
 		dir.y += 1
 	if Input.is_action_pressed("p1_up"):
 		dir.y -= 1
+	
+	#攻击
+	if Input.is_action_pressed("p1_act"):
+		attack()
 	
 	# 标准化方向向量，防止对角线移动过快
 	if dir.length() > 0:
@@ -82,8 +100,19 @@ func get_collider():
 	else:
 		return null
 
+#技能
+func attack():
+	if get_collider()!=null:
+		if cd_timer.is_stopped():
+			cd_timer.start()
+			get_collider().get_attacked()
+			print("attacked")
+	
+
 func get_attacked():
 	health = health - 20
+	#血条更新
+	update_health()
 	# 受到攻击后检查是否死亡
 	check_death()
 
@@ -131,3 +160,4 @@ func revive(restore_health: int = 100):
 # 返回角色是否死亡的状态
 func is_character_dead() -> bool:
 	return is_dead
+	
