@@ -12,6 +12,11 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_fpt6v")
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1, 0.747222)
+texture = ExtResource("2_qjbx0")
+
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -56,11 +61,6 @@ text = "About"
 layout_mode = 2
 theme_override_font_sizes/font_size = 31
 text = "Quit"
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(960, 540)
-scale = Vector2(1, 0.747222)
-texture = ExtResource("2_qjbx0")
 
 [connection signal="pressed" from="ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/AboutButton" to="." method="_on_about_button_pressed"]
