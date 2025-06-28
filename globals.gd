@@ -1,79 +1,48 @@
+#Global是控制整个游戏框架的脚本，包括背景音乐，页面和关卡的切换
+
 extends Node
 
-# 全局变量
-var current_scene = null
-var is_changing_scene = false
+@onready var animation_player = $AnimationPlayer
 
+#在各种地方都可以通过Globals.reload_world()来重置世界
+func reload_world():
+	animation_player.play_backwards("fade-in")
+	await animation_player.animation_finished
+	get_tree().reload_current_scene()
+	animation_player.play("fade-in")
+
+# Called when the node enters the scene tree for the first time.
 func _ready():
-	var root = get_tree().root
-	current_scene = root.get_child(root.get_child_count() - 1)
+	pass # Replace with function body.
 
-# 场景切换函数
-func change_scene(path: String):
-	if is_changing_scene:
-		return
-	
-	is_changing_scene = true
-	print("正在切换场景到: ", path)
-	
-	# 释放当前场景
-	call_deferred("_deferred_change_scene", path)
 
-func _deferred_change_scene(path: String):
-	# 释放当前场景
-	if current_scene:
-		current_scene.free()
-	
-	# 加载新场景
-	var new_scene = ResourceLoader.load(path)
-	if new_scene == null:
-		print("错误: 无法加载场景 ", path)
-		is_changing_scene = false
-		return
-	
-	# 实例化新场景
-	current_scene = new_scene.instantiate()
-	
-	# 添加到场景树
-	get_tree().root.add_child(current_scene)
-	get_tree().current_scene = current_scene
-	
-	is_changing_scene = false
-	print("场景切换完成: ", path)
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Input.is_action_just_pressed("ui_esc"):
+		back_to_title()
 
-# 重新开始当前场景
-func restart_current_scene():
-	if current_scene:
-		var scene_path = current_scene.scene_file_path
-		change_scene(scene_path)
-
-# 退出游戏
-func quit_game():
-	print("退出游戏")
-	get_tree().quit()
-
-# 暂停/恢复游戏
-func toggle_pause():
-	get_tree().paused = !get_tree().paused
-	print("游戏暂停状态: ", get_tree().paused)
-
-# 设置游戏暂停状态
-func set_pause(paused: bool):
-	get_tree().paused = paused
-	print("设置游戏暂停: ", paused)
-
-# 获取当前场景路径
-func get_current_scene_path() -> String:
-	if current_scene:
-		return current_scene.scene_file_path
-	return ""
-
-# 预加载场景（可选功能）
-func preload_scene(path: String):
-	var scene = ResourceLoader.load(path)
-	if scene:
-		print("场景预加载成功: ", path)
-		return scene
+func _animate_transition_to(path):
+	animation_player.play_backwards("fade-in")
+	await animation_player.animation_finished
+	if path:
+		get_tree().change_scene_to_file(path)
 	else:
-		print("场景预加载失败: ", path)
-		return null
+		get_tree().reload_current_scene()
+	
+	animation_player.play("fade-in")
+
+func play_fade_out():
+	animation_player.play_backwards("fade-in")
+
+func play_fade_in():
+	animation_player.play("fade-in")
+
+func start_game():
+	go_to_world("res://ui/Menu/start_menu.tscn")
+
+#到时候可以写保留什么东西等等
+func go_to_world(path):
+	_animate_transition_to(path)
+	
+func back_to_title():
+	_animate_transition_to("res://ui/Menu/start_menu.tscn")
