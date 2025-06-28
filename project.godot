@@ -12,7 +12,6 @@ config_version=5
 
 config/name="25CiGAGJ-RE"
 config/tags=PackedStringArray("teach")
-run/main_scene="res://bg_map/bg_map.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
