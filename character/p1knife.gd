@@ -50,10 +50,6 @@ func _physics_process(delta):
 	if is_dead:
 		return
 		
-	check_attack()
-	if is_attack:
-		return
-	
 	#显示cd
 	cd_ui.text="%.2f" % cd_timer.time_left
 
@@ -91,6 +87,10 @@ func _physics_process(delta):
 	check_death()
 
 func update_animation(dir):
+	check_attack()
+	if is_attack:
+		return
+		
 	# 更新朝向状态
 	if dir.x > 0:
 		facing_direction = "right"
@@ -132,15 +132,14 @@ func get_collider():
 
 #技能
 func attack():
-	if get_collider()!=null && not get_collider() is TileMap:
-		if cd_timer.is_stopped():
-			cd_timer.start()
-			#延迟半秒扣血
-			await get_tree().create_timer(0.5).timeout
-			if get_collider() != null && not get_collider() is TileMap:  # 再次检查以防目标在这半秒内消失
-				get_collider().get_attacked()
-			print("attacked")
-			Globals.play_sfx(preload("res://asset/sound/hurt.mp3"))
+	if cd_timer.is_stopped():
+		cd_timer.start()
+		#延迟半秒扣血
+		await get_tree().create_timer(0.5).timeout
+		if get_collider() != null && not get_collider() is TileMap:  # 再次检查以防目标在这半秒内消失
+			get_collider().get_attacked()
+		print("attacked")
+		Globals.play_sfx(preload("res://asset/sound/hurt.mp3"))
 			
 func check_attack():
 	# 如果角色已死亡，不播放攻击动画
