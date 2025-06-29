@@ -202,8 +202,7 @@ func check_heal():
 	if is_dead:
 		is_heal=0
 		return
-		
-	if cd_timer.time_left>2.5:
+	if cd_timer.time_left>8.5:
 		playerAni.play("skill")
 		is_heal=1
 	else:

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ce2bxixqkypnm" path="res://character/p1milk.gd" id="1_w3co7"]
 [ext_resource type="Texture2D" uid="uid://p2s6622qkyp7" path="res://asset/sprite sheet/milk/death/milk-full-death-Sheet.png" id="2_oesyo"]
 [ext_resource type="Texture2D" uid="uid://dwyt5g0qc7ufp" path="res://character/assets/milk/idle/milk-idle-Sheet.png" id="2_sa5pd"]
-[ext_resource type="Texture2D" uid="uid://f440j4wuyeix" path="res://asset/sprite sheet/milk/process/milk-healing-all-proccess-Sheet.png" id="4_nhnpc"]
+[ext_resource type="Texture2D" uid="uid://duo57jqsdhal7" path="res://asset/sprite sheet/milk/process/milk-healing-all-proccess-Sheet.png" id="4_nhnpc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tvfxh"]
 atlas = ExtResource("2_oesyo")
