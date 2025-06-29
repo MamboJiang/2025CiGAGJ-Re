@@ -1,7 +1,28 @@
-[gd_scene load_steps=21 format=3 uid="uid://bvoo02stkdnhk"]
+[gd_scene load_steps=27 format=3 uid="uid://bvoo02stkdnhk"]
 
 [ext_resource type="Script" uid="uid://blgval4qxh18a" path="res://character/p2pan.gd" id="1_d2aae"]
 [ext_resource type="Texture2D" uid="uid://0ondmgtgwqmn" path="res://character/assets/pan/pan-idle-Sheet.png" id="2_d2aae"]
+[ext_resource type="Texture2D" uid="uid://bburcltdnrft1" path="res://asset/sprite sheet/pan/pan-death-Sheet.png" id="2_er2uy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6mady"]
+atlas = ExtResource("2_er2uy")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d7pmk"]
+atlas = ExtResource("2_er2uy")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgxvq"]
+atlas = ExtResource("2_er2uy")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os3d2"]
+atlas = ExtResource("2_er2uy")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chf0m"]
+atlas = ExtResource("2_er2uy")
+region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mcnke"]
 atlas = ExtResource("2_d2aae")
@@ -69,6 +90,26 @@ region = Rect2(1920, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mudp3"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6mady")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d7pmk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgxvq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os3d2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chf0m")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mcnke")
@@ -344,7 +385,7 @@ script = ExtResource("1_d2aae")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mudp3")
-animation = &"walk_up"
+animation = &"death"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

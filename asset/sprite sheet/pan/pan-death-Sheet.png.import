@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1eqqdk1fptgl"
-path="res://.godot/imported/kitchen knife-death-Sheet.png-a69aac1a0f17adb0299ce31e841b6b9e.ctex"
+uid="uid://bburcltdnrft1"
+path="res://.godot/imported/pan-death-Sheet.png-ea58f44fe41d3887c690c2c5fb71a3c5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprite sheet/tool/kitchen knife-death-Sheet.png"
-dest_files=["res://.godot/imported/kitchen knife-death-Sheet.png-a69aac1a0f17adb0299ce31e841b6b9e.ctex"]
+source_file="res://asset/sprite sheet/pan/pan-death-Sheet.png"
+dest_files=["res://.godot/imported/pan-death-Sheet.png-ea58f44fe41d3887c690c2c5fb71a3c5.ctex"]
 
 [params]
 

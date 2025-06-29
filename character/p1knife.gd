@@ -79,6 +79,8 @@ func _physics_process(delta):
 	
 	# 处理动画
 	update_animation(input_dir)
+	
+	check_death()
 
 func update_animation(dir):
 	# 根据移动方向播放对应动画

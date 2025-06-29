@@ -1,7 +1,28 @@
-[gd_scene load_steps=17 format=3 uid="uid://dr5yxbkio6t01"]
+[gd_scene load_steps=23 format=3 uid="uid://dr5yxbkio6t01"]
 
 [ext_resource type="Script" uid="uid://btmcgjmpdaeb5" path="res://character/p2milk.gd" id="1_yscx1"]
+[ext_resource type="Texture2D" uid="uid://p2s6622qkyp7" path="res://asset/sprite sheet/milk/death/milk-full-death-Sheet.png" id="2_r54sq"]
 [ext_resource type="Texture2D" uid="uid://dwyt5g0qc7ufp" path="res://character/assets/milk/idle/milk-idle-Sheet.png" id="2_ssypu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvfxh"]
+atlas = ExtResource("2_r54sq")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdtos"]
+atlas = ExtResource("2_r54sq")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8q686"]
+atlas = ExtResource("2_r54sq")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j64n5"]
+atlas = ExtResource("2_r54sq")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkalh"]
+atlas = ExtResource("2_r54sq")
+region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oesyo"]
 atlas = ExtResource("2_ssypu")
@@ -53,6 +74,26 @@ region = Rect2(1408, 0, 128, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_1rvb7"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvfxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdtos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8q686")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j64n5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkalh")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oesyo")
@@ -269,8 +310,10 @@ script = ExtResource("1_yscx1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1rvb7")
-animation = &"walk_down"
+animation = &"death"
 autoplay = "idle"
+frame = 4
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 10)

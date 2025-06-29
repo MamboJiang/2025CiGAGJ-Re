@@ -1,7 +1,8 @@
-[gd_scene load_steps=29 format=3 uid="uid://cs4pf401evktc"]
+[gd_scene load_steps=35 format=3 uid="uid://cs4pf401evktc"]
 
 [ext_resource type="Script" uid="uid://bmt16rsrqbdnq" path="res://character/p2knife.gd" id="1_ocvxt"]
 [ext_resource type="Texture2D" uid="uid://b6p6xtrt2q6ga" path="res://character/assets/knife/kitchen knife-Sheet.png" id="2_61fi7"]
+[ext_resource type="Texture2D" uid="uid://c1eqqdk1fptgl" path="res://asset/sprite sheet/tool/kitchen knife-death-Sheet.png" id="3_dxnsw"]
 [ext_resource type="Texture2D" uid="uid://vcjhbau7y6y7" path="res://character/assets/knife/kitchen knife idle-Sheet.png" id="3_w4v16"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r67cd"]
@@ -47,6 +48,26 @@ region = Rect2(1152, 0, 128, 128)
 [sub_resource type="AtlasTexture" id="AtlasTexture_k747e"]
 atlas = ExtResource("2_61fi7")
 region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1jd1"]
+atlas = ExtResource("3_dxnsw")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqw6m"]
+atlas = ExtResource("3_dxnsw")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stqtv"]
+atlas = ExtResource("3_dxnsw")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywyti"]
+atlas = ExtResource("3_dxnsw")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xo8t"]
+atlas = ExtResource("3_dxnsw")
+region = Rect2(512, 0, 128, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n4lvr"]
 atlas = ExtResource("3_w4v16")
@@ -135,6 +156,26 @@ animations = [{
 "loop": true,
 "name": &"attack",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1jd1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqw6m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stqtv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ywyti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xo8t")
+}],
+"loop": false,
+"name": &"death",
+"speed": 6.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -352,8 +393,10 @@ script = ExtResource("1_ocvxt")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-10, 4)
 sprite_frames = SubResource("SpriteFrames_1rvb7")
-animation = &"walk_left"
+animation = &"death"
 autoplay = "idle"
+frame = 4
+frame_progress = 0.575588
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ocvxt")
