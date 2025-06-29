@@ -164,6 +164,8 @@ func check_game_end():
 	# 检查P2方所有工具是否都死亡
 	var p2_all_dead = p2knife.is_character_dead() and p2pan.is_character_dead() and p2milk.is_character_dead()
 	
+	var two_knife_pan_dead = p1knife.is_character_dead() and p1milk.is_character_dead() and p2knife.is_character_dead() and p2milk.is_character_dead()
+	
 	if p1_all_dead and not p2_all_dead:
 		# P2胜利
 		game_ended = true
@@ -178,12 +180,12 @@ func check_game_end():
 		# TODO: 切换到P1胜利场景
 		Globals.go_to_world("res://ui/Ending/p1winning.tscn")
 		
-	elif p1_all_dead and p2_all_dead:
+	elif (p1_all_dead and p2_all_dead) or (two_knife_pan_dead):
 		# 平局
 		game_ended = true
 		print("平局！")
 		# TODO: 切换到平局场景
-		# get_tree().change_scene_to_file("res://ui/victory/draw.tscn")
+		Globals.go_to_world("res://ui/Ending/tileend.tscn")
 
 # 检查英雄附身的角色是否死亡，如果死亡则自动下车
 func check_possessed_character_death():

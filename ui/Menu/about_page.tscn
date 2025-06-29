@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dasdxuy3hxiq6"]
+[gd_scene load_steps=19 format=3 uid="uid://dasdxuy3hxiq6"]
 
 [ext_resource type="Script" uid="uid://ciwkld22hfwd3" path="res://ui/Menu/about_page.gd" id="1_fl5jy"]
 [ext_resource type="Texture2D" uid="uid://dpf481kgp5dgh" path="res://asset/background/background1.png" id="2_n51ak"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://3ny16gvggg3n" path="res://asset/sprite sheet/pan/pan-idle-Sheet.png" id="7_85mqw"]
 [ext_resource type="Texture2D" uid="uid://dm0tqw3y8nhis" path="res://asset/sprite sheet/milk/idle/milk-idle-Sheet.png" id="8_tb7jc"]
 [ext_resource type="Texture2D" uid="uid://b4r2cbs0cepho" path="res://asset/sprite sheet/tool/kitchen knife idle-Sheet.png" id="9_j45fo"]
+[ext_resource type="Texture2D" uid="uid://dumcth3ckjti1" path="res://asset/ui/keys.png" id="11_j45fo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbybf"]
 3:1/0 = 0
@@ -59,6 +60,10 @@ region = Rect2(423, 20, 52, 74)
 [sub_resource type="AtlasTexture" id="AtlasTexture_dh555"]
 atlas = ExtResource("9_j45fo")
 region = Rect2(442, 13, 32, 95)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whqlg"]
+atlas = ExtResource("11_j45fo")
+region = Rect2(128, 40, 40, 32)
 
 [node name="AboutPage" type="Control"]
 layout_mode = 3
@@ -123,7 +128,10 @@ offset_right = 395.0
 offset_bottom = 726.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 66
-text = "技能：全体护盾 CD 3s"
+text = "技能：全体护盾 CD 3s
+
+
+目标：击杀所有对方棋子（除了灵魂本体）"
 label_settings = ExtResource("3_tb7jc")
 
 [node name="player1intro" type="Label" parent="."]
@@ -179,9 +187,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -78.9999
-offset_top = -263.0
+offset_top = -209.0
 offset_right = -33.9999
-offset_bottom = -231.0
+offset_bottom = -177.0
 grow_horizontal = 2
 grow_vertical = 0
 scale = Vector2(3.72, 3.72)
@@ -210,5 +218,8 @@ texture = SubResource("AtlasTexture_phbfs")
 position = Vector2(696, 323)
 scale = Vector2(2.02, 2.02)
 texture = SubResource("AtlasTexture_dh555")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_whqlg")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
