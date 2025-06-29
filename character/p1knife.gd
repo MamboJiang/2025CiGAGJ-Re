@@ -122,6 +122,11 @@ func attack():
 			print("attacked")
 			
 func check_attack():
+	# 如果角色已死亡，不播放攻击动画
+	if is_dead:
+		is_attack=0
+		return
+		
 	if cd_timer.time_left>2:
 		playerAni.play("attack")
 		is_attack=1
@@ -155,7 +160,11 @@ func play_death_animation():
 # 死亡动画播放完成后的处理
 func _on_death_animation_finished():
 	if is_dead and playerAni.animation == "death":
+		# 设置为死亡动画的最后一帧并变灰
+		playerAni.frame = playerAni.sprite_frames.get_frame_count("death") - 1
+		playerAni.modulate = Color(0.5, 0.5, 0.5, 1.0)  # 变灰效果
 		playerAni.stop()
+		playerAni.frame = playerAni.sprite_frames.get_frame_count("death") - 1
 		print("P1 Knife死亡动画播放完成")
 
 # 复活函数
@@ -168,6 +177,9 @@ func revive(restore_health: int = 100):
 		
 		# 恢复生命值
 		health = restore_health
+		
+		# 恢复正常颜色
+		playerAni.modulate = Color(1.0, 1.0, 1.0, 1.0)
 		
 		# 播放待机动画
 		playerAni.play("idle")
