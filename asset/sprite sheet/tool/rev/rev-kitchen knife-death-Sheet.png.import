@@ -2,7 +2,15 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://bou8t5jma6d8s"
+=======
+<<<<<<< Updated upstream
+uid="uid://d0njo3udq1adt"
+=======
+uid="uid://reb4rggoas78"
+>>>>>>> Stashed changes
+>>>>>>> origin/main
 path="res://.godot/imported/rev-kitchen knife-death-Sheet.png-f18b2158244a01ba3db97438ee3636ee.ctex"
 metadata={
 "vram_texture": false

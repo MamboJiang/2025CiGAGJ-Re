@@ -391,7 +391,7 @@ scale = Vector2(2, 2)
 script = ExtResource("1_ocvxt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-10, 4)
+position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_1rvb7")
 animation = &"attack"
 autoplay = "idle"

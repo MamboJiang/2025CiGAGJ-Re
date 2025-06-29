@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://1ic2aejdjrtj"]
+[gd_scene load_steps=24 format=3 uid="uid://1ic2aejdjrtj"]
 
 [ext_resource type="Script" uid="uid://dkab1ojrr053s" path="res://bg_map/bg_map.gd" id="1_0evb0"]
 [ext_resource type="Texture2D" uid="uid://dycy2jkbiet5m" path="res://asset/background/newbackground.png" id="2_cl8tm"]
@@ -6,11 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://b581x0fb6ue18" path="res://character/p2hero.tscn" id="4_weknq"]
 [ext_resource type="PackedScene" uid="uid://tgf2b7fkfys2" path="res://character/p1knife.tscn" id="5_12x6b"]
 [ext_resource type="PackedScene" uid="uid://cs4pf401evktc" path="res://character/p2knife.tscn" id="6_3s32r"]
-[ext_resource type="Texture2D" uid="uid://cs7lbfx1y5c4" path="res://asset/ui/health/health bar.png" id="6_ivxwu"]
+[ext_resource type="Texture2D" uid="uid://dp0vg4h30jbsy" path="res://asset/ui/health/healthbar_blue.png" id="6_ivxwu"]
 [ext_resource type="PackedScene" uid="uid://bvoo02stkdnhk" path="res://character/p2pan.tscn" id="7_3s32r"]
 [ext_resource type="Texture2D" uid="uid://cseolilxm876i" path="res://asset/ui/health/health.png" id="7_i1j5m"]
 [ext_resource type="PackedScene" uid="uid://bblgwqtnpbmga" path="res://character/p1pan.tscn" id="8_n1hf1"]
 [ext_resource type="PackedScene" uid="uid://bpuw6y5vf0u4n" path="res://character/p1milk.tscn" id="9_cl8tm"]
+[ext_resource type="Texture2D" uid="uid://cs7lbfx1y5c4" path="res://asset/ui/health/health bar.png" id="9_eruho"]
+[ext_resource type="Texture2D" uid="uid://c74ii18lh7f1q" path="res://asset/ui/health/health_blue.png" id="9_i1j5m"]
 [ext_resource type="PackedScene" uid="uid://dr5yxbkio6t01" path="res://character/p2milk.tscn" id="10_ubgvt"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivxwu"]
@@ -49,8 +51,16 @@ sources/0 = SubResource("TileSetAtlasSource_ivxwu")
 [sub_resource type="CircleShape2D" id="CircleShape2D_cl8tm"]
 radius = 28.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_eruho"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_l0c15"]
 atlas = ExtResource("6_ivxwu")
+region = Rect2(32, 59, 64, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i1j5m"]
+atlas = ExtResource("9_i1j5m")
+region = Rect2(35, 62, 58, 4)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eruho"]
+atlas = ExtResource("9_eruho")
 region = Rect2(32, 59, 64, 10)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_syi25"]
@@ -126,8 +136,8 @@ offset_left = -32.6667
 offset_top = -67.3333
 offset_right = 31.3333
 offset_bottom = -57.3333
-texture_under = SubResource("AtlasTexture_eruho")
-texture_progress = SubResource("AtlasTexture_syi25")
+texture_under = SubResource("AtlasTexture_l0c15")
+texture_progress = SubResource("AtlasTexture_i1j5m")
 texture_progress_offset = Vector2(3, 3)
 
 [node name="p2knife" parent="." instance=ExtResource("6_3s32r")]
@@ -191,15 +201,6 @@ position = Vector2(0, -3.33333)
 shape = SubResource("CircleShape2D_ivxwu")
 target_position = Vector2(0.666656, 32)
 
-[node name="health_bar" type="TextureProgressBar" parent="p1pan"]
-offset_left = -32.0
-offset_top = -54.6667
-offset_right = 32.0
-offset_bottom = -44.6667
-texture_under = SubResource("AtlasTexture_eruho")
-texture_progress = SubResource("AtlasTexture_syi25")
-texture_progress_offset = Vector2(3, 3)
-
 [node name="cd_timer" type="Timer" parent="p1pan"]
 wait_time = 3.0
 one_shot = true
@@ -207,6 +208,15 @@ one_shot = true
 [node name="cd_ui" type="RichTextLabel" parent="p1pan"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="health_bar" type="TextureProgressBar" parent="p1pan"]
+offset_left = -32.6667
+offset_top = -67.3333
+offset_right = 31.3333
+offset_bottom = -57.3333
+texture_under = SubResource("AtlasTexture_l0c15")
+texture_progress = SubResource("AtlasTexture_i1j5m")
+texture_progress_offset = Vector2(3, 3)
 
 [node name="p1milk" parent="." instance=ExtResource("9_cl8tm")]
 position = Vector2(595, 344)
@@ -217,15 +227,6 @@ position = Vector2(-0.666667, -28)
 shape = SubResource("CircleShape2D_cl8tm")
 target_position = Vector2(0.666687, 55.3333)
 
-[node name="health_bar" type="TextureProgressBar" parent="p1milk"]
-offset_left = -32.0
-offset_top = -64.6667
-offset_right = 32.0
-offset_bottom = -54.6667
-texture_under = SubResource("AtlasTexture_eruho")
-texture_progress = SubResource("AtlasTexture_syi25")
-texture_progress_offset = Vector2(3, 3)
-
 [node name="cd_timer" type="Timer" parent="p1milk"]
 wait_time = 3.0
 one_shot = true
@@ -233,6 +234,15 @@ one_shot = true
 [node name="cd_ui" type="RichTextLabel" parent="p1milk"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="health_bar" type="TextureProgressBar" parent="p1milk"]
+offset_left = -32.6667
+offset_top = -67.3333
+offset_right = 31.3333
+offset_bottom = -57.3333
+texture_under = SubResource("AtlasTexture_l0c15")
+texture_progress = SubResource("AtlasTexture_i1j5m")
+texture_progress_offset = Vector2(3, 3)
 
 [node name="p2milk" parent="." instance=ExtResource("10_ubgvt")]
 position = Vector2(1362, 354)

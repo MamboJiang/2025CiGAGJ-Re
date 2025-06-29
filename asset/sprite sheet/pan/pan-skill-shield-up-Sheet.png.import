@@ -2,7 +2,15 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://baf5dua5iuyb2"
+=======
+<<<<<<< Updated upstream
+uid="uid://dajfxb7sui1ld"
+=======
+uid="uid://6ewu0ve3gxus"
+>>>>>>> Stashed changes
+>>>>>>> origin/main
 path="res://.godot/imported/pan-skill-shield-up-Sheet.png-1e8333b0a2524f687293a4291a3182be.ctex"
 metadata={
 "vram_texture": false

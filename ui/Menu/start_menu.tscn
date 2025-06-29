@@ -1,7 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://dkwltwm2ku8wq"]
+[gd_scene load_steps=10 format=3 uid="uid://dkwltwm2ku8wq"]
 
 [ext_resource type="Script" uid="uid://dwkpy8sw3ivto" path="res://ui/Menu/start_menu.gd" id="1_fpt6v"]
 [ext_resource type="Texture2D" uid="uid://dpf481kgp5dgh" path="res://asset/background/background1.png" id="2_qjbx0"]
+[ext_resource type="Texture2D" uid="uid://b7mgr4kkvg5sg" path="res://asset/ui/menu/start-Sheet.png" id="3_5iv43"]
+[ext_resource type="Theme" uid="uid://b5axpdqxrl145" path="res://asset/new_theme.tres" id="3_w1ltt"]
+[ext_resource type="Texture2D" uid="uid://d26gcqelpn8ec" path="res://asset/ui/menu/about-Sheet.png" id="5_14ugy"]
+[ext_resource type="Texture2D" uid="uid://dyxq3op6qy8pq" path="res://asset/ui/menu/exit-Sheet.png" id="6_5cx6g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ex63"]
+atlas = ExtResource("3_5iv43")
+region = Rect2(30, 34, 68, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_81ehy"]
+atlas = ExtResource("5_14ugy")
+region = Rect2(38, 34, 63, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yyiil"]
+atlas = ExtResource("6_5cx6g")
+region = Rect2(42, 34, 44, 28)
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -35,32 +51,39 @@ text = "GAME NAME"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -61.5
-offset_top = -280.0
-offset_right = 61.5
-offset_bottom = -116.0
+anchors_preset = -1
+anchor_left = 0.508
+anchor_top = 1.047
+anchor_right = 0.508
+anchor_bottom = 1.047
+offset_left = -131.73
+offset_top = -515.76
+offset_right = -63.73
+offset_bottom = -420.76
 grow_horizontal = 2
 grow_vertical = 0
+scale = Vector2(3.6, 3.6)
 
 [node name="StartButton" type="Button" parent="ButtonContainer"]
 layout_mode = 2
+theme = ExtResource("3_w1ltt")
 theme_override_font_sizes/font_size = 31
-text = "Start"
+icon = SubResource("AtlasTexture_3ex63")
+icon_alignment = 1
 
 [node name="AboutButton" type="Button" parent="ButtonContainer"]
 layout_mode = 2
+theme = ExtResource("3_w1ltt")
 theme_override_font_sizes/font_size = 31
-text = "About"
+icon = SubResource("AtlasTexture_81ehy")
+icon_alignment = 1
 
 [node name="QuitButton" type="Button" parent="ButtonContainer"]
 layout_mode = 2
+theme = ExtResource("3_w1ltt")
 theme_override_font_sizes/font_size = 31
-text = "Quit"
+icon = SubResource("AtlasTexture_yyiil")
+icon_alignment = 1
 
 [connection signal="pressed" from="ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/AboutButton" to="." method="_on_about_button_pressed"]
