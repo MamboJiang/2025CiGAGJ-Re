@@ -140,6 +140,7 @@ func attack():
 			if get_collider() != null && not get_collider() is TileMap:  # 再次检查以防目标在这半秒内消失
 				get_collider().get_attacked()
 			print("attacked")
+			Globals.play_sfx(preload("res://asset/sound/hurt.mp3"))
 			
 func check_attack():
 	# 如果角色已死亡，不播放攻击动画
@@ -172,6 +173,7 @@ func check_death():
 	if health <= 0 and not is_dead:
 		is_dead = true
 		play_death_animation()
+		Globals.play_sfx(preload("res://asset/sound/deadwav.wav"))
 		print("P1 Knife角色死亡")
 
 # 播放死亡动画

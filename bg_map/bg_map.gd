@@ -24,6 +24,7 @@ var p2_object
 var game_ended = false
 
 func _ready():
+	Globals.play_bgm(preload("res://asset/sound/main.mp3"))
 	# 开始游戏结束检查
 	pass
 
@@ -39,6 +40,7 @@ func _input(event):
 	if Input.is_action_just_pressed("p1change"):
 		if not p1_change_timer.is_stopped():
 			return
+		Globals.play_sfx(preload("res://asset/sound/knife.wav"))
 		p1_change_timer.start()
 		match (p1selected):
 			1:
@@ -61,6 +63,7 @@ func _input(event):
 			p1hero.disappear()
 		print("P1 切换到: ", p1selected)
 	if Input.is_action_just_pressed("p1_quit"):
+		Globals.play_sfx(preload("res://asset/sound/knife.wav"))
 		if p1selected!=1:
 			p1hero.appear(p1_object.position)
 			p1selected=1
@@ -69,6 +72,7 @@ func _input(event):
 	if Input.is_action_just_pressed("p2change"):
 		if not p2_change_timer.is_stopped():
 			return
+		Globals.play_sfx(preload("res://asset/sound/knife.wav"))
 		p2_change_timer.start()
 		match (p2selected):
 			1:
@@ -91,6 +95,7 @@ func _input(event):
 			p2hero.disappear()
 		print("P2 切换到: ", p2selected)
 	if Input.is_action_just_pressed("p2_quit"):
+		Globals.play_sfx(preload("res://asset/sound/knife.wav"))
 		if p2selected!=1:
 			p2hero.appear(p2_object.position)
 			p2selected=1

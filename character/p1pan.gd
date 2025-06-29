@@ -127,6 +127,7 @@ func check_death():
 		is_dead = true
 		play_death_animation()
 		print("P1 Pan角色死亡")
+		Globals.play_sfx(preload("res://asset/sound/deadwav.wav"))
 
 # 播放死亡动画
 func play_death_animation():
@@ -182,6 +183,7 @@ func shield():
 		await get_tree().create_timer(0.5).timeout
 		bg_map.p1_shield()
 		print("defended")
+		Globals.play_sfx(preload("res://asset/sound/pan.wav"))
 	
 func add_shield():
 	is_shield=true

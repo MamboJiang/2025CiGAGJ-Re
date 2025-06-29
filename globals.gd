@@ -3,6 +3,8 @@
 extends Node
 
 @onready var animation_player = $AnimationPlayer
+@onready var bgm_player = $BGM
+@onready var sfx_player = $SFX
 
 #在各种地方都可以通过Globals.reload_world()来重置世界
 func reload_world():
@@ -46,3 +48,36 @@ func go_to_world(path):
 	
 func back_to_title():
 	_animate_transition_to("res://ui/Menu/start_menu.tscn")
+
+# 音效播放功能
+func play_sfx(audio_stream: AudioStream, volume_db: float = 0.0):
+	if sfx_player and audio_stream:
+		sfx_player.stream = audio_stream
+		sfx_player.volume_db = volume_db
+		sfx_player.play()
+
+func play_bgm(audio_stream: AudioStream, volume_db: float = 0.0, loop: bool = true):
+	if bgm_player and audio_stream:
+		bgm_player.stream = audio_stream
+		bgm_player.volume_db = volume_db
+		if audio_stream is AudioStreamOggVorbis:
+			audio_stream.loop = loop
+		elif audio_stream is AudioStreamMP3:
+			audio_stream.loop = loop
+		bgm_player.play()
+
+func stop_bgm():
+	if bgm_player:
+		bgm_player.stop()
+
+func stop_sfx():
+	if sfx_player:
+		sfx_player.stop()
+
+func set_bgm_volume(volume_db: float):
+	if bgm_player:
+		bgm_player.volume_db = volume_db
+
+func set_sfx_volume(volume_db: float):
+	if sfx_player:
+		sfx_player.volume_db = volume_db

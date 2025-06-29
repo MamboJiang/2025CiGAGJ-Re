@@ -44,6 +44,8 @@ script = ExtResource("1_f6yec")
 
 [node name="BGM" type="AudioStreamPlayer2D" parent="."]
 
+[node name="SFX" type="AudioStreamPlayer" parent="."]
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
