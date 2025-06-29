@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bcsicdxdu6dib"
+path="res://.godot/imported/ready go.mp3-659e7f39ee57666f87f8b8b2cb632741.mp3str"
+
+[deps]
+
+source_file="res://asset/sound/ready go.mp3"
+dest_files=["res://.godot/imported/ready go.mp3-659e7f39ee57666f87f8b8b2cb632741.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
