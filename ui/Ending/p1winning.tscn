@@ -1,0 +1,63 @@
+[gd_scene load_steps=4 format=3 uid="uid://b54o11wt8b8kx"]
+
+[ext_resource type="Script" uid="uid://bqvvi41tvwysw" path="res://ui/Ending/p1winning.gd" id="1_p1mph"]
+[ext_resource type="Texture2D" uid="uid://dpf481kgp5dgh" path="res://asset/background/background1.png" id="2_68g5k"]
+[ext_resource type="PackedScene" uid="uid://cdtyykhdyiywl" path="res://ui/Menu/AboutPageChar/aboutp1.tscn" id="3_68g5k"]
+
+[node name="p1winning" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p1mph")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1, 0.747222)
+texture = ExtResource("2_68g5k")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.464
+anchor_right = 0.5
+anchor_bottom = 0.464
+offset_left = -835.0
+offset_top = -405.12
+offset_right = -245.73
+offset_bottom = -262.12
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.52, 1.52)
+theme_override_font_sizes/font_size = 86
+text = "Player 1 Win!"
+
+[node name="ButtonContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 284.0
+offset_top = -347.0
+offset_right = 576.0
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(1.56, 1.56)
+
+[node name="QuitButton" type="Button" parent="ButtonContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "Quit to Startscreen"
+
+[node name="aboutp1" parent="." instance=ExtResource("3_68g5k")]
+position = Vector2(642, 496)
+rotation = -0.31765
+scale = Vector2(13.46, 13.46)
+
+[connection signal="pressed" from="ButtonContainer/QuitButton" to="." method="_on_quit_button_pressed"]

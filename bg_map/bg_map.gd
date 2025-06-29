@@ -126,14 +126,14 @@ func check_game_end():
 		game_ended = true
 		print("P2胜利！")
 		# TODO: 切换到P2胜利场景
-		# get_tree().change_scene_to_file("res://ui/victory/p2_victory.tscn")
+		Globals.go_to_world("res://ui/Ending/p2winning.tscn")
 		
 	elif p2_all_dead and not p1_all_dead:
 		# P1胜利
 		game_ended = true
 		print("P1胜利！")
 		# TODO: 切换到P1胜利场景
-		# get_tree().change_scene_to_file("res://ui/victory/p1_victory.tscn")
+		Globals.go_to_world("res://ui/Ending/p1winning.tscn")
 		
 	elif p1_all_dead and p2_all_dead:
 		# 平局
