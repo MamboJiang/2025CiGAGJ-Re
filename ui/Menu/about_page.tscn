@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dasdxuy3hxiq6"]
+[gd_scene load_steps=16 format=3 uid="uid://dasdxuy3hxiq6"]
 
 [ext_resource type="Script" uid="uid://ciwkld22hfwd3" path="res://ui/Menu/about_page.gd" id="1_fl5jy"]
 [ext_resource type="Texture2D" uid="uid://dpf481kgp5dgh" path="res://asset/background/background1.png" id="2_n51ak"]
@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://cdtyykhdyiywl" path="res://ui/Menu/AboutPageChar/aboutp1.tscn" id="3_qbybf"]
 [ext_resource type="Texture2D" uid="uid://dyxq3op6qy8pq" path="res://asset/ui/menu/exit-Sheet.png" id="4_8r7fx"]
 [ext_resource type="PackedScene" uid="uid://b61y7n4pudh6q" path="res://ui/Menu/AboutPageChar/aboutp2.tscn" id="4_uie7v"]
+[ext_resource type="Texture2D" uid="uid://3ny16gvggg3n" path="res://asset/sprite sheet/pan/pan-idle-Sheet.png" id="7_85mqw"]
+[ext_resource type="Texture2D" uid="uid://dm0tqw3y8nhis" path="res://asset/sprite sheet/milk/idle/milk-idle-Sheet.png" id="8_tb7jc"]
+[ext_resource type="Texture2D" uid="uid://b4r2cbs0cepho" path="res://asset/sprite sheet/tool/kitchen knife idle-Sheet.png" id="9_j45fo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qbybf"]
 3:1/0 = 0
@@ -44,6 +47,18 @@ sources/0 = SubResource("TileSetAtlasSource_qbybf")
 atlas = ExtResource("4_8r7fx")
 region = Rect2(42, 34, 44, 28)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_3j3wa"]
+atlas = ExtResource("7_85mqw")
+region = Rect2(671, 31, 66, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phbfs"]
+atlas = ExtResource("8_tb7jc")
+region = Rect2(423, 20, 52, 74)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dh555"]
+atlas = ExtResource("9_j45fo")
+region = Rect2(442, 13, 32, 95)
+
 [node name="AboutPage" type="Control"]
 layout_mode = 3
 anchors_preset = 15
@@ -81,6 +96,45 @@ grow_horizontal = 2
 theme_override_font_sizes/font_size = 66
 text = "GAME NAME"
 
+[node name="title2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_top = 258.0
+offset_right = 381.0
+offset_bottom = 351.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 66
+text = "技能：挥砍"
+
+[node name="title3" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 452.0
+offset_right = 382.0
+offset_bottom = 545.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 66
+text = "技能：复活队员"
+
+[node name="title4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -81.0
+offset_top = 637.0
+offset_right = 381.0
+offset_bottom = 730.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 66
+text = "技能：全体护盾"
+
 [node name="player1intro" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -88,18 +142,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -568.0
-offset_top = -136.0
-offset_right = -259.0
-offset_bottom = 73.0
+offset_left = -760.0
+offset_top = -252.0
+offset_right = -344.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
 text = "玩家1
 移动：‘W’ ‘A’ ‘S’ ‘D’
-“附身”：‘Q’
-“灵魂出窍”：‘R’
-使用技能：‘E’"
+“附身”：‘Q' or 手柄'A'
+“灵魂出窍”：‘R’ or 手柄'B'
+使用技能：‘E’ or 手柄'X'"
 horizontal_alignment = 1
 
 [node name="player2intro" type="Label" parent="."]
@@ -110,18 +164,18 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 388.0
-offset_top = -161.0
-offset_right = 697.0
-offset_bottom = 292.0
+offset_left = 463.0
+offset_top = -264.0
+offset_right = 856.0
+offset_bottom = 189.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 36
 text = "玩家2
 移动：‘↑’ ‘↓’ ‘←’ ‘→’
-“附身”：‘O’
-“灵魂出窍”：‘I’
-使用技能：‘P’"
+“附身”：‘O’ 或手柄'A'
+“灵魂出窍”：‘I’ 或手柄'B'
+使用技能：‘P’ 或手柄'X'"
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="."]
@@ -144,9 +198,24 @@ icon = SubResource("AtlasTexture_hk55o")
 icon_alignment = 1
 
 [node name="aboutp1" parent="." instance=ExtResource("3_qbybf")]
-position = Vector2(542, 708)
+position = Vector2(397, 665)
 
 [node name="aboutp2" parent="." instance=ExtResource("4_uie7v")]
-position = Vector2(1497, 711)
+position = Vector2(1613, 659)
+
+[node name="pan" type="Sprite2D" parent="."]
+position = Vector2(768, 716)
+scale = Vector2(1.96, 1.96)
+texture = SubResource("AtlasTexture_3j3wa")
+
+[node name="milk" type="Sprite2D" parent="."]
+position = Vector2(778, 524)
+scale = Vector2(2, 2)
+texture = SubResource("AtlasTexture_phbfs")
+
+[node name="knife" type="Sprite2D" parent="."]
+position = Vector2(763, 331)
+scale = Vector2(2.02, 2.02)
+texture = SubResource("AtlasTexture_dh555")
 
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
