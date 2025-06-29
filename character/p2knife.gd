@@ -25,6 +25,10 @@ var death_animation_played = false
 
 var is_attack=false
 
+# 方向状态管理
+var last_direction = Vector2.RIGHT
+var facing_direction = "right"  # "left" 或 "right"
+
 func update_health():
 	health_bar.value=health
 
@@ -83,6 +87,14 @@ func _physics_process(delta):
 	check_death()
 
 func update_animation(dir):
+	# 更新朝向状态
+	if dir.x > 0:
+		facing_direction = "right"
+		last_direction = Vector2.RIGHT
+	elif dir.x < 0:
+		facing_direction = "left"
+		last_direction = Vector2.LEFT
+	
 	# 根据移动方向播放对应动画
 	if dir.length() > 0:
 		# 有移动时播放行走动画
@@ -90,16 +102,20 @@ func update_animation(dir):
 			# 水平移动优先
 			if dir.x > 0:
 				playerAni.play("walk_right")
+				playerAni.flip_h = true   # 向右时翻转
 			else:
-				playerAni.play("walk_left")
+				playerAni.play("walk_right")  # 使用同一个动画
+				playerAni.flip_h = false  # 向左时不翻转
 		else:
-			# 垂直移动
+			# 垂直移动时保持当前朝向
+			playerAni.flip_h = (facing_direction == "right")
 			if dir.y > 0:
 				playerAni.play("walk_down")
 			else:
 				playerAni.play("walk_up")
 	else:
-		# 没有移动时播放待机动画
+		# idle时保持最后的朝向
+		playerAni.flip_h = (facing_direction == "right")
 		playerAni.play("idle")
 
 @onready var shape_cast_2d: ShapeCast2D = $ShapeCast2D
@@ -127,6 +143,8 @@ func check_attack():
 		return
 		
 	if cd_timer.time_left>2:
+		# 攻击动画也需要考虑方向
+		playerAni.flip_h = (facing_direction == "right")
 		playerAni.play("attack")
 		is_attack=1
 	else:
