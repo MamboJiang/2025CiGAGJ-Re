@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var health_bar: TextureProgressBar = $health_bar
 @onready var cd_timer: Timer = $cd_timer
 @onready var cd_ui: RichTextLabel = $cd_ui
+@onready var shield_ui: Sprite2D = $shield_ui
 
 var dir = Vector2.ZERO
 var speed = 700
@@ -27,6 +28,7 @@ func update_health():
 	health_bar.value=health
 
 func _ready() -> void:
+	shield_ui.hide()
 	update_health()
 	
 var acceleration_time = 0.0
@@ -117,6 +119,7 @@ func heal():
 func get_attacked():
 	if is_shield:
 		is_shield=false
+		shield_ui.hide()
 		return
 	health = health - 20
 	update_health()
@@ -178,5 +181,7 @@ func is_character_dead() -> bool:
 		
 func add_shield():
 	is_shield=true
+	shield_ui.show()
 	await get_tree().create_timer(3).timeout
 	is_shield=false
+	shield_ui.hide()

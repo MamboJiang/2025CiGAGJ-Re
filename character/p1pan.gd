@@ -5,12 +5,16 @@ extends CharacterBody2D
 @onready var cd_timer: Timer = $cd_timer
 @onready var cd_ui: RichTextLabel = $cd_ui
 @onready var bg_map: Node2D = $".."
+@onready var shield_ui: Sprite2D = $shield_ui
 
 var dir = Vector2.ZERO
 var speed = 700
 
 #是否有护盾
 var is_shield=false
+
+#是否在做护盾动作
+var is_shielding=0
 
 #生命
 var health = 100
@@ -28,6 +32,7 @@ func update_health():
 	health_bar.value=health
 
 func _ready() -> void:
+	shield_ui.hide()
 	update_health()
 
 var acceleration_time = 0.0
@@ -42,6 +47,10 @@ func _physics_process(delta):
 	if is_dead:
 		return
 		
+	check_shielding()
+	if is_shielding:
+		return
+	
 	#显示cd
 	cd_ui.text="%.2f" % cd_timer.time_left
 	
@@ -105,6 +114,7 @@ func get_collider():
 func get_attacked():
 	if is_shield:
 		is_shield=false
+		shield_ui.hide()
 		return
 	health = health - 20
 	update_health()
@@ -175,5 +185,20 @@ func shield():
 	
 func add_shield():
 	is_shield=true
+	shield_ui.show()
 	await get_tree().create_timer(3).timeout
 	is_shield=false
+	shield_ui.hide()
+	
+
+func check_shielding():
+	# 如果角色已死亡，不播放攻击动画
+	if is_dead:
+		is_shielding=0
+		return
+		
+	if cd_timer.time_left>2:
+		playerAni.play("skill")
+		is_shielding=1
+	else:
+		is_shielding=0

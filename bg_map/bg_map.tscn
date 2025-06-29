@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://1ic2aejdjrtj"]
+[gd_scene load_steps=25 format=3 uid="uid://1ic2aejdjrtj"]
 
 [ext_resource type="Script" uid="uid://dkab1ojrr053s" path="res://bg_map/bg_map.gd" id="1_0evb0"]
 [ext_resource type="Texture2D" uid="uid://dycy2jkbiet5m" path="res://asset/background/newbackground.png" id="2_cl8tm"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bvoo02stkdnhk" path="res://character/p2pan.tscn" id="7_3s32r"]
 [ext_resource type="Texture2D" uid="uid://cseolilxm876i" path="res://asset/ui/health/health.png" id="7_i1j5m"]
 [ext_resource type="PackedScene" uid="uid://bblgwqtnpbmga" path="res://character/p1pan.tscn" id="8_n1hf1"]
+[ext_resource type="Texture2D" uid="uid://bm2pc8phai541" path="res://asset/sprite sheet/pan/pan-skill-shield-up-Sheet.png" id="8_syi25"]
 [ext_resource type="PackedScene" uid="uid://bpuw6y5vf0u4n" path="res://character/p1milk.tscn" id="9_cl8tm"]
 [ext_resource type="Texture2D" uid="uid://cs7lbfx1y5c4" path="res://asset/ui/health/health bar.png" id="9_eruho"]
 [ext_resource type="Texture2D" uid="uid://c74ii18lh7f1q" path="res://asset/ui/health/health_blue.png" id="9_i1j5m"]
@@ -140,6 +141,13 @@ texture_under = SubResource("AtlasTexture_l0c15")
 texture_progress = SubResource("AtlasTexture_i1j5m")
 texture_progress_offset = Vector2(3, 3)
 
+[node name="shield_ui" type="Sprite2D" parent="p1knife"]
+position = Vector2(5.33333, -1.33334)
+scale = Vector2(0.700861, 1.08288)
+texture = ExtResource("8_syi25")
+region_enabled = true
+region_rect = Rect2(273, 17, 92, 92)
+
 [node name="p2knife" parent="." instance=ExtResource("6_3s32r")]
 position = Vector2(1557, 649)
 scale = Vector2(1.5, 1.5)
@@ -165,6 +173,13 @@ offset_bottom = -60.0
 texture_under = SubResource("AtlasTexture_eruho")
 texture_progress = SubResource("AtlasTexture_syi25")
 texture_progress_offset = Vector2(3, 3)
+
+[node name="shield_ui" type="Sprite2D" parent="p2knife"]
+position = Vector2(5.33333, -1.33334)
+scale = Vector2(0.700861, 1.08288)
+texture = ExtResource("8_syi25")
+region_enabled = true
+region_rect = Rect2(273, 17, 92, 92)
 
 [node name="p2pan" parent="." instance=ExtResource("7_3s32r")]
 position = Vector2(1354, 620)
@@ -192,6 +207,13 @@ one_shot = true
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="shield_ui" type="Sprite2D" parent="p2pan"]
+position = Vector2(-1.33332, 13.3333)
+scale = Vector2(0.763474, 1.08288)
+texture = ExtResource("8_syi25")
+region_enabled = true
+region_rect = Rect2(273, 17, 92, 92)
+
 [node name="p1pan" parent="." instance=ExtResource("8_n1hf1")]
 position = Vector2(599, 634)
 scale = Vector2(1.5, 1.5)
@@ -217,6 +239,13 @@ offset_bottom = -57.3333
 texture_under = SubResource("AtlasTexture_l0c15")
 texture_progress = SubResource("AtlasTexture_i1j5m")
 texture_progress_offset = Vector2(3, 3)
+
+[node name="shield_ui" type="Sprite2D" parent="p1pan"]
+position = Vector2(0.666663, 11.3333)
+scale = Vector2(0.700861, 1.08288)
+texture = ExtResource("8_syi25")
+region_enabled = true
+region_rect = Rect2(273, 17, 92, 92)
 
 [node name="p1milk" parent="." instance=ExtResource("9_cl8tm")]
 position = Vector2(595, 344)
@@ -244,6 +273,13 @@ texture_under = SubResource("AtlasTexture_l0c15")
 texture_progress = SubResource("AtlasTexture_i1j5m")
 texture_progress_offset = Vector2(3, 3)
 
+[node name="shield_ui" type="Sprite2D" parent="p1milk"]
+position = Vector2(-3.33786e-06, -6)
+scale = Vector2(0.700861, 1.08288)
+texture = ExtResource("8_syi25")
+region_enabled = true
+region_rect = Rect2(273, 17, 92, 92)
+
 [node name="p2milk" parent="." instance=ExtResource("10_ubgvt")]
 position = Vector2(1362, 354)
 scale = Vector2(1.5, 1.5)
@@ -269,3 +305,10 @@ one_shot = true
 [node name="cd_ui" type="RichTextLabel" parent="p2milk"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="shield_ui" type="Sprite2D" parent="p2milk"]
+position = Vector2(-3.33786e-06, -8.66667)
+scale = Vector2(0.700861, 1.08288)
+texture = ExtResource("8_syi25")
+region_enabled = true
+region_rect = Rect2(273, 17, 92, 92)
