@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< Updated upstream
 uid="uid://d0alq5ow56nvs"
+=======
+uid="uid://dmxald6573v34"
+>>>>>>> Stashed changes
 path="res://.godot/imported/rev-kitchen knife-Sheet.png-76b598cbf5b24c2651b03b3b70805161.ctex"
 metadata={
 "vram_texture": false
