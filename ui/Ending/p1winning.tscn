@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://b54o11wt8b8kx"]
+[gd_scene load_steps=5 format=3 uid="uid://b54o11wt8b8kx"]
 
 [ext_resource type="Script" uid="uid://bqvvi41tvwysw" path="res://ui/Ending/p1winning.gd" id="1_p1mph"]
 [ext_resource type="Texture2D" uid="uid://dpf481kgp5dgh" path="res://asset/background/background1.png" id="2_68g5k"]
+[ext_resource type="LabelSettings" uid="uid://8s5easux4hi6" path="res://asset/font.tres" id="3_3whgj"]
 [ext_resource type="PackedScene" uid="uid://cdtyykhdyiywl" path="res://ui/Menu/AboutPageChar/aboutp1.tscn" id="3_68g5k"]
 
 [node name="p1winning" type="Control"]
@@ -31,9 +32,10 @@ offset_right = -245.73
 offset_bottom = -262.12
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(1.52, 1.52)
+scale = Vector2(2.42, 2.42)
 theme_override_font_sizes/font_size = 86
 text = "Player 1 Win!"
+label_settings = ExtResource("3_3whgj")
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

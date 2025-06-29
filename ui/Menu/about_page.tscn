@@ -1,9 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://dasdxuy3hxiq6"]
+[gd_scene load_steps=17 format=3 uid="uid://dasdxuy3hxiq6"]
 
 [ext_resource type="Script" uid="uid://ciwkld22hfwd3" path="res://ui/Menu/about_page.gd" id="1_fl5jy"]
 [ext_resource type="Texture2D" uid="uid://dpf481kgp5dgh" path="res://asset/background/background1.png" id="2_n51ak"]
 [ext_resource type="Theme" uid="uid://b5axpdqxrl145" path="res://asset/new_theme.tres" id="3_k1giy"]
 [ext_resource type="PackedScene" uid="uid://cdtyykhdyiywl" path="res://ui/Menu/AboutPageChar/aboutp1.tscn" id="3_qbybf"]
+[ext_resource type="LabelSettings" uid="uid://8s5easux4hi6" path="res://asset/font.tres" id="3_tb7jc"]
 [ext_resource type="Texture2D" uid="uid://dyxq3op6qy8pq" path="res://asset/ui/menu/exit-Sheet.png" id="4_8r7fx"]
 [ext_resource type="PackedScene" uid="uid://b61y7n4pudh6q" path="res://ui/Menu/AboutPageChar/aboutp2.tscn" id="4_uie7v"]
 [ext_resource type="Texture2D" uid="uid://3ny16gvggg3n" path="res://asset/sprite sheet/pan/pan-idle-Sheet.png" id="7_85mqw"]
@@ -88,13 +89,14 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -196.0
-offset_top = 263.0
-offset_right = 377.0
-offset_bottom = 357.0
+offset_left = -180.0
+offset_top = 282.0
+offset_right = 446.0
+offset_bottom = 379.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 66
 text = "技能：挥砍，CD 3s"
+label_settings = ExtResource("3_tb7jc")
 
 [node name="title3" type="Label" parent="."]
 layout_mode = 1
@@ -108,19 +110,21 @@ offset_bottom = 545.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 66
 text = "技能：复活队员 CD 9s"
+label_settings = ExtResource("3_tb7jc")
 
 [node name="title4" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -81.0
-offset_top = 637.0
-offset_right = 381.0
-offset_bottom = 730.0
+offset_left = -188.0
+offset_top = 633.0
+offset_right = 395.0
+offset_bottom = 726.0
 grow_horizontal = 2
 theme_override_font_sizes/font_size = 66
 text = "技能：全体护盾 CD 3s"
+label_settings = ExtResource("3_tb7jc")
 
 [node name="player1intro" type="Label" parent="."]
 layout_mode = 1
@@ -141,6 +145,7 @@ text = "玩家1
 “附身”：‘Q' or 手柄'A'
 “灵魂出窍”：‘R’ or 手柄'B'
 使用技能：‘E’ or 手柄'X'"
+label_settings = ExtResource("3_tb7jc")
 horizontal_alignment = 1
 
 [node name="player2intro" type="Label" parent="."]
@@ -163,6 +168,7 @@ text = "玩家2
 “附身”：‘O’ 或手柄'A'
 “灵魂出窍”：‘I’ 或手柄'B'
 使用技能：‘P’ 或手柄'X'"
+label_settings = ExtResource("3_tb7jc")
 horizontal_alignment = 1
 
 [node name="BackButton" type="Button" parent="."]

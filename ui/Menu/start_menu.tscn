@@ -1,12 +1,17 @@
-[gd_scene load_steps=17 format=3 uid="uid://dkwltwm2ku8wq"]
+[gd_scene load_steps=19 format=3 uid="uid://dkwltwm2ku8wq"]
 
 [ext_resource type="Script" uid="uid://dwkpy8sw3ivto" path="res://ui/Menu/start_menu.gd" id="1_fpt6v"]
 [ext_resource type="Texture2D" uid="uid://dpf481kgp5dgh" path="res://asset/background/background1.png" id="2_qjbx0"]
+[ext_resource type="FontFile" uid="uid://c6ux4cqpnnbxf" path="res://asset/IPix.ttf" id="3_5cx6g"]
 [ext_resource type="Texture2D" uid="uid://b7mgr4kkvg5sg" path="res://asset/ui/menu/start-Sheet.png" id="3_5iv43"]
 [ext_resource type="Theme" uid="uid://b5axpdqxrl145" path="res://asset/new_theme.tres" id="3_w1ltt"]
 [ext_resource type="Texture2D" uid="uid://d26gcqelpn8ec" path="res://asset/ui/menu/about-Sheet.png" id="5_14ugy"]
 [ext_resource type="Texture2D" uid="uid://dyxq3op6qy8pq" path="res://asset/ui/menu/exit-Sheet.png" id="6_5cx6g"]
 [ext_resource type="Texture2D" uid="uid://cag1uecy6rwqe" path="res://asset/ui/menu/title-Sheet.png" id="7_14ugy"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ex63"]
+font = ExtResource("3_5cx6g")
+font_size = 80
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ex63"]
 atlas = ExtResource("3_5iv43")
@@ -84,13 +89,17 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -260.5
-offset_top = -249.0
-offset_right = 260.5
-offset_bottom = -131.0
+offset_left = 124.0
+offset_top = 193.0
+offset_right = 964.0
+offset_bottom = 315.0
 grow_horizontal = 2
 grow_vertical = 2
+rotation = -0.202458
+scale = Vector2(0.8, 0.8)
 theme_override_font_sizes/font_size = 86
+text = "<- 第一次玩看这里！"
+label_settings = SubResource("LabelSettings_3ex63")
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
