@@ -2,6 +2,8 @@ extends CharacterBody2D
 #p222222milk
 @onready var playerAni = $AnimatedSprite2D
 @onready var health_bar: TextureProgressBar = $health_bar
+@onready var cd_timer: Timer = $cd_timer
+@onready var cd_ui: RichTextLabel = $cd_ui
 
 var dir = Vector2.ZERO
 var speed = 700
@@ -38,6 +40,9 @@ func _physics_process(delta):
 	# 如果角色死亡，停止移动
 	if is_dead:
 		return
+		
+	#显示cd
+	cd_ui.text="%.2f" % cd_timer.time_left
 
 	# 只有当父节点的p2selected为4时才检测输入
 	if get_parent().p2selected != 4:

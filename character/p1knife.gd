@@ -192,6 +192,7 @@ func revive(restore_health: int = 100):
 		print("角色复活，生命值恢复到: ", health)
 	else:
 		print("角色还活着，无需复活")
+	update_health()
 
 # 返回角色是否死亡的状态
 func is_character_dead() -> bool:

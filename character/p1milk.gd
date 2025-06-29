@@ -2,6 +2,8 @@ extends CharacterBody2D
 #p1111111milk
 @onready var playerAni = $AnimatedSprite2D
 @onready var health_bar: TextureProgressBar = $health_bar
+@onready var cd_timer: Timer = $cd_timer
+@onready var cd_ui: RichTextLabel = $cd_ui
 
 var dir = Vector2.ZERO
 var speed = 700
@@ -34,10 +36,13 @@ func _physics_process(delta):
 
 	# 检查死亡状态
 	check_death()
-	
+
 	# 如果角色死亡，停止移动
 	if is_dead:
 		return
+		
+	#显示cd
+	cd_ui.text="%.2f" % cd_timer.time_left
 	
 	# 只有当父节点的p1selected为4时才检测输入
 	if get_parent().p1selected != 4:
@@ -46,6 +51,11 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("p1_left", "p1_right", "p1_up", "p1_down", false)
 	var direction = Vector2(input_dir.x, input_dir.y)
 	update_animation(input_dir)
+	
+	#治疗
+	if Input.is_action_pressed("p1_act"):
+		heal()
+		
 	if direction:
 		direction = direction.normalized()
 		acceleration_time = min(acceleration_time + delta, max_acceleration_time)
@@ -93,6 +103,17 @@ func get_collider():
 	else:
 		return null
 
+#技能
+func heal():
+	if get_collider()!=null && not get_collider() is TileMap:
+		if cd_timer.is_stopped():
+			cd_timer.start()
+			#延迟半秒
+			await get_tree().create_timer(0.5).timeout
+			if get_collider() != null:  # 再次检查以防目标在这半秒内消失
+				get_collider().revive(80)
+			print("heal")
+			
 func get_attacked():
 	if is_shield:
 		is_shield=false
