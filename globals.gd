@@ -6,6 +6,9 @@ extends Node
 @onready var bgm_player = $BGM
 @onready var sfx_player = $SFX
 
+var shield_cd=9
+var shield_time=9
+
 #在各种地方都可以通过Globals.reload_world()来重置世界
 func reload_world():
 	animation_player.play_backwards("fade-in")

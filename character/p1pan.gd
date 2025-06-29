@@ -34,6 +34,7 @@ func update_health():
 func _ready() -> void:
 	shield_ui.hide()
 	update_health()
+	cd_timer.wait_time=Globals.shield_cd
 
 var acceleration_time = 0.0
 var max_acceleration_time = 0.2 # 最大加速时间
@@ -150,6 +151,7 @@ func _on_death_animation_finished():
 
 # 复活函数
 func revive(restore_health: int = 100):
+	health+=50
 	# 复活角色
 	if is_dead:
 		# 重置死亡状态
@@ -188,7 +190,7 @@ func shield():
 func add_shield():
 	is_shield=true
 	shield_ui.show()
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(Globals.shield_time).timeout
 	is_shield=false
 	shield_ui.hide()
 	
@@ -199,7 +201,7 @@ func check_shielding():
 		is_shielding=0
 		return
 		
-	if cd_timer.time_left>2:
+	if cd_timer.time_left>Globals.shield_cd-1:
 		playerAni.play("skill")
 		is_shielding=1
 	else:

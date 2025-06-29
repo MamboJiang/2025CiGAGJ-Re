@@ -122,7 +122,7 @@ func heal():
 			#延迟半秒
 			await get_tree().create_timer(0.5).timeout
 			if get_collider() != null:  # 再次检查以防目标在这半秒内消失
-				get_collider().revive(80)
+				get_collider().revive()
 			print("heal")
 			# 技能动画结束后回到idle
 			playerAni.play("idle")
@@ -165,7 +165,8 @@ func _on_death_animation_finished():
 		print("P1 Milk死亡动画播放完成")
 
 # 复活函数
-func revive(restore_health: int = 100):
+func revive(restore_health: int = 50):
+	health+=50
 	# 复活角色
 	if is_dead:
 		# 重置死亡状态
@@ -194,7 +195,7 @@ func is_character_dead() -> bool:
 func add_shield():
 	is_shield=true
 	shield_ui.show()
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(Globals.shield_time).timeout
 	is_shield=false
 	shield_ui.hide()
 

@@ -197,6 +197,7 @@ func _on_death_animation_finished():
 
 # 复活函数
 func revive(restore_health: int = 100):
+	health+=50
 	# 复活角色
 	if is_dead:
 		# 重置死亡状态
@@ -225,7 +226,6 @@ func is_character_dead() -> bool:
 func add_shield():
 	is_shield=true
 	shield_ui.show()
-	await get_tree().create_timer(3).timeout
+	await get_tree().create_timer(Globals.shield_time).timeout
 	is_shield=false
 	shield_ui.hide()
-	
