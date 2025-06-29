@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bngh15lrooo25"
-path="res://.godot/imported/p2-left-Sheet.png-e4ad95d7be2acde3ec9f3ccfa66d0821.ctex"
+uid="uid://b1em1kiwehlx8"
+path="res://.godot/imported/background.png-e144b77cb061a3e9abeae66b9b428d7b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprite sheet/heroine/p2-left-Sheet.png"
-dest_files=["res://.godot/imported/p2-left-Sheet.png-e4ad95d7be2acde3ec9f3ccfa66d0821.ctex"]
+source_file="res://asset/background/background.png"
+dest_files=["res://.godot/imported/background.png-e144b77cb061a3e9abeae66b9b428d7b.ctex"]
 
 [params]
 

@@ -110,11 +110,15 @@ func heal():
 	if get_collider()!=null && not get_collider() is TileMap:
 		if cd_timer.is_stopped():
 			cd_timer.start()
+			# 播放技能动画
+			playerAni.play("skill")
 			#延迟半秒
 			await get_tree().create_timer(0.5).timeout
 			if get_collider() != null:  # 再次检查以防目标在这半秒内消失
 				get_collider().revive(80)
 			print("heal")
+			# 技能动画结束后回到idle
+			playerAni.play("idle")
 			
 func get_attacked():
 	if is_shield:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bngh15lrooo25"
-path="res://.godot/imported/p2-left-Sheet.png-e4ad95d7be2acde3ec9f3ccfa66d0821.ctex"
+uid="uid://cf2bdhcwi4wlg"
+path="res://.godot/imported/milk-healing-all-proccess-Sheet.png-2fa1e2a3682ce041118f4b95b55e541c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprite sheet/heroine/p2-left-Sheet.png"
-dest_files=["res://.godot/imported/p2-left-Sheet.png-e4ad95d7be2acde3ec9f3ccfa66d0821.ctex"]
+source_file="res://asset/sprite sheet/milk/process/milk-healing-all-proccess-Sheet.png"
+dest_files=["res://.godot/imported/milk-healing-all-proccess-Sheet.png-2fa1e2a3682ce041118f4b95b55e541c.ctex"]
 
 [params]
 

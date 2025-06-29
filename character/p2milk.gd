@@ -53,6 +53,10 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("p2_left", "p2_right", "p2_up", "p2_down", false)
 	var direction = Vector2(input_dir.x, input_dir.y)
 	update_animation(input_dir)
+	
+	#治疗
+	if Input.is_action_pressed("p2_act"):
+		heal()
 
 	if direction:
 		direction = direction.normalized()
@@ -100,6 +104,21 @@ func get_collider():
 		return shape_cast_2d.get_collider(0)
 	else:
 		return null
+
+#技能
+func heal():
+	if get_collider()!=null && not get_collider() is TileMap:
+		if cd_timer.is_stopped():
+			cd_timer.start()
+			# 播放技能动画
+			playerAni.play("skill")
+			#延迟半秒
+			await get_tree().create_timer(0.5).timeout
+			if get_collider() != null:  # 再次检查以防目标在这半秒内消失
+				get_collider().revive(80)
+			print("heal")
+			# 技能动画结束后回到idle
+			playerAni.play("idle")
 
 func get_attacked():
 	if is_shield:

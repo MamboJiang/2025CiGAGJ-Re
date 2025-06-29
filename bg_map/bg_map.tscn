@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bvoo02stkdnhk" path="res://character/p2pan.tscn" id="7_3s32r"]
 [ext_resource type="Texture2D" uid="uid://cseolilxm876i" path="res://asset/ui/health/health.png" id="7_i1j5m"]
 [ext_resource type="PackedScene" uid="uid://bblgwqtnpbmga" path="res://character/p1pan.tscn" id="8_n1hf1"]
-[ext_resource type="Texture2D" uid="uid://bm2pc8phai541" path="res://asset/sprite sheet/pan/pan-skill-shield-up-Sheet.png" id="8_syi25"]
+[ext_resource type="Texture2D" uid="uid://5v56tbcysxi4" path="res://asset/sprite sheet/pan/pan-skill-shield-up-Sheet.png" id="8_syi25"]
 [ext_resource type="PackedScene" uid="uid://bpuw6y5vf0u4n" path="res://character/p1milk.tscn" id="9_cl8tm"]
 [ext_resource type="Texture2D" uid="uid://cs7lbfx1y5c4" path="res://asset/ui/health/health bar.png" id="9_eruho"]
 [ext_resource type="Texture2D" uid="uid://c74ii18lh7f1q" path="res://asset/ui/health/health_blue.png" id="9_i1j5m"]
