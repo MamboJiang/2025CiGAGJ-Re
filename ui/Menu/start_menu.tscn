@@ -6,7 +6,7 @@
 [ext_resource type="Theme" uid="uid://b5axpdqxrl145" path="res://asset/new_theme.tres" id="3_w1ltt"]
 [ext_resource type="Texture2D" uid="uid://d26gcqelpn8ec" path="res://asset/ui/menu/about-Sheet.png" id="5_14ugy"]
 [ext_resource type="Texture2D" uid="uid://dyxq3op6qy8pq" path="res://asset/ui/menu/exit-Sheet.png" id="6_5cx6g"]
-[ext_resource type="Texture2D" uid="uid://dkmieeir7klei" path="res://asset/ui/menu/title-Sheet.png" id="7_14ugy"]
+[ext_resource type="Texture2D" uid="uid://cag1uecy6rwqe" path="res://asset/ui/menu/title-Sheet.png" id="7_14ugy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ex63"]
 atlas = ExtResource("3_5iv43")

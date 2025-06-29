@@ -15,8 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cs7lbfx1y5c4" path="res://asset/ui/health/health bar.png" id="9_eruho"]
 [ext_resource type="Texture2D" uid="uid://c74ii18lh7f1q" path="res://asset/ui/health/health_blue.png" id="9_i1j5m"]
 [ext_resource type="PackedScene" uid="uid://dr5yxbkio6t01" path="res://character/p2milk.tscn" id="10_ubgvt"]
-[ext_resource type="Texture2D" uid="uid://ce1jcppvqvv7q" path="res://asset/ui/arrow/p1arrown.png" id="16_fgotj"]
-[ext_resource type="Texture2D" uid="uid://daagdfk8tios1" path="res://asset/ui/arrow/p2arrown.png" id="17_exu6r"]
+[ext_resource type="Texture2D" uid="uid://bp7p7s6v5mt7j" path="res://asset/ui/arrow/p1arrown.png" id="16_fgotj"]
+[ext_resource type="Texture2D" uid="uid://dwymmgww5604q" path="res://asset/ui/arrow/p2arrown.png" id="17_exu6r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivxwu"]
 3:1/0 = 0
