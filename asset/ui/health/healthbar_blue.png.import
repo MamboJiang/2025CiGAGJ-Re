@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d0alq5ow56nvs"
-path="res://.godot/imported/rev-kitchen knife-Sheet.png-76b598cbf5b24c2651b03b3b70805161.ctex"
+uid="uid://dp0vg4h30jbsy"
+path="res://.godot/imported/healthbar_blue.png-2ff0fb8c926a7793e4c4f15a4fb501c3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://asset/sprite sheet/tool/rev/rev-kitchen knife-Sheet.png"
-dest_files=["res://.godot/imported/rev-kitchen knife-Sheet.png-76b598cbf5b24c2651b03b3b70805161.ctex"]
+source_file="res://asset/ui/health/healthbar_blue.png"
+dest_files=["res://.godot/imported/healthbar_blue.png-2ff0fb8c926a7793e4c4f15a4fb501c3.ctex"]
 
 [params]
 
