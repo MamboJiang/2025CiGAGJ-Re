@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dkwltwm2ku8wq"]
+[gd_scene load_steps=17 format=3 uid="uid://dkwltwm2ku8wq"]
 
 [ext_resource type="Script" uid="uid://dwkpy8sw3ivto" path="res://ui/Menu/start_menu.gd" id="1_fpt6v"]
 [ext_resource type="Texture2D" uid="uid://dpf481kgp5dgh" path="res://asset/background/background1.png" id="2_qjbx0"]
@@ -6,6 +6,7 @@
 [ext_resource type="Theme" uid="uid://b5axpdqxrl145" path="res://asset/new_theme.tres" id="3_w1ltt"]
 [ext_resource type="Texture2D" uid="uid://d26gcqelpn8ec" path="res://asset/ui/menu/about-Sheet.png" id="5_14ugy"]
 [ext_resource type="Texture2D" uid="uid://dyxq3op6qy8pq" path="res://asset/ui/menu/exit-Sheet.png" id="6_5cx6g"]
+[ext_resource type="Texture2D" uid="uid://dkmieeir7klei" path="res://asset/ui/menu/title-Sheet.png" id="7_14ugy"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ex63"]
 atlas = ExtResource("3_5iv43")
@@ -18,6 +19,49 @@ region = Rect2(38, 34, 63, 28)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yyiil"]
 atlas = ExtResource("6_5cx6g")
 region = Rect2(42, 34, 44, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5cx6g"]
+atlas = ExtResource("7_14ugy")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl24p"]
+atlas = ExtResource("7_14ugy")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgi5a"]
+atlas = ExtResource("7_14ugy")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22y2c"]
+atlas = ExtResource("7_14ugy")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j1dyh"]
+atlas = ExtResource("7_14ugy")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgmej"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5cx6g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl24p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgi5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22y2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j1dyh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="StartMenu" type="Control"]
 layout_mode = 3
@@ -47,7 +91,6 @@ offset_bottom = -131.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 86
-text = "GAME NAME"
 
 [node name="ButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
@@ -84,6 +127,14 @@ theme = ExtResource("3_w1ltt")
 theme_override_font_sizes/font_size = 31
 icon = SubResource("AtlasTexture_yyiil")
 icon_alignment = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(963, 346)
+scale = Vector2(6.64, 6.64)
+sprite_frames = SubResource("SpriteFrames_mgmej")
+autoplay = "default"
+frame = 3
+frame_progress = 0.902612
 
 [connection signal="pressed" from="ButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="ButtonContainer/AboutButton" to="." method="_on_about_button_pressed"]

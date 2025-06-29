@@ -83,19 +83,6 @@ position = Vector2(960, 540)
 scale = Vector2(1, 0.747222)
 texture = ExtResource("2_n51ak")
 
-[node name="title" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -199.5
-offset_top = 130.0
-offset_right = 199.5
-offset_bottom = 221.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 66
-text = "GAME NAME"
-
 [node name="title2" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
