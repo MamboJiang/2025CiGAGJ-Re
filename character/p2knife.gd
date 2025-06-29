@@ -5,6 +5,9 @@ extends CharacterBody2D
 @onready var cd_ui: RichTextLabel = $cd_ui
 @onready var health_bar: TextureProgressBar = $health_bar
 
+#是否有护盾
+var is_shield=false
+
 var dir = Vector2.ZERO
 var speed = 700
 
@@ -130,6 +133,9 @@ func check_attack():
 		is_attack=0
 		
 func get_attacked():
+	if is_shield:
+		is_shield=false
+		return
 	health = health - 20
 	update_health()
 	# 受到攻击后检查是否死亡
@@ -186,3 +192,9 @@ func revive(restore_health: int = 100):
 # 返回角色是否死亡的状态
 func is_character_dead() -> bool:
 	return is_dead
+
+	
+func add_shield():
+	is_shield=true
+	await get_tree().create_timer(3).timeout
+	is_shield=false

@@ -99,6 +99,16 @@ func _input(event):
 	if Input.is_action_just_pressed("ui_accept") or Input.is_key_pressed(KEY_EQUAL):
 		kill_all_tools()
 		print("调试：一键杀死所有工具角色")
+			
+func p1_shield():
+	p1knife.add_shield()
+	p1pan.add_shield()
+	p1milk.add_shield()
+	
+func p2_shield():
+	p2knife.add_shield()
+	p2pan.add_shield()
+	p2milk.add_shield()
 
 # 检查游戏结束条件
 func check_game_end():

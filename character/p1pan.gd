@@ -2,9 +2,15 @@ extends CharacterBody2D
 #p1111111knife
 @onready var playerAni = $AnimatedSprite2D
 @onready var health_bar: TextureProgressBar = $health_bar
+@onready var cd_timer: Timer = $cd_timer
+@onready var cd_ui: RichTextLabel = $cd_ui
+@onready var bg_map: Node2D = $".."
 
 var dir = Vector2.ZERO
 var speed = 700
+
+#是否有护盾
+var is_shield=false
 
 #生命
 var health = 100
@@ -37,7 +43,10 @@ func _physics_process(delta):
 	# 如果角色死亡，停止移动
 	if is_dead:
 		return
-
+		
+	#显示cd
+	cd_ui.text="%.2f" % cd_timer.time_left
+	
 	# 只有当父节点的p1selected为3时才检测输入
 	if get_parent().p1selected != 3:
 		return
@@ -45,6 +54,9 @@ func _physics_process(delta):
 	var input_dir = Input.get_vector("p1_left", "p1_right", "p1_up", "p1_down", false)
 	var direction = Vector2(input_dir.x, input_dir.y)
 	update_animation(input_dir)
+	#攻击
+	if Input.is_action_pressed("p1_act"):
+		shield()
 	if direction:
 		direction = direction.normalized()
 		acceleration_time = min(acceleration_time + delta, max_acceleration_time)
@@ -93,6 +105,9 @@ func get_collider():
 		return null
 
 func get_attacked():
+	if is_shield:
+		is_shield=false
+		return
 	health = health - 20
 	update_health()
 	# 受到攻击后检查是否死亡
@@ -149,4 +164,17 @@ func revive(restore_health: int = 100):
 # 返回角色是否死亡的状态
 func is_character_dead() -> bool:
 	return is_dead
-		
+
+#技能
+func shield():
+	if cd_timer.is_stopped():
+		cd_timer.start()
+		#延迟半秒加护盾
+		await get_tree().create_timer(0.5).timeout
+		bg_map.p1_shield()
+		print("defended")
+	
+func add_shield():
+	is_shield=true
+	await get_tree().create_timer(3).timeout
+	is_shield=false

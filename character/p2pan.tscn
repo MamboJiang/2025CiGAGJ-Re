@@ -1,6 +1,6 @@
 [gd_scene load_steps=39 format=3 uid="uid://bvoo02stkdnhk"]
 
-[ext_resource type="Script" uid="uid://blgval4qxh18a" path="res://character/p2pan.gd" id="1_d2aae"]
+[ext_resource type="Script" path="res://character/p2pan.gd" id="1_d2aae"]
 [ext_resource type="Texture2D" uid="uid://0ondmgtgwqmn" path="res://character/assets/pan/pan-idle-Sheet.png" id="2_d2aae"]
 [ext_resource type="Texture2D" uid="uid://bburcltdnrft1" path="res://asset/sprite sheet/pan/pan-death-Sheet.png" id="2_er2uy"]
 [ext_resource type="Texture2D" uid="uid://b72w1eqoi0udx" path="res://asset/sprite sheet/pan/pan-skill-Sheet.png" id="4_6mady"]

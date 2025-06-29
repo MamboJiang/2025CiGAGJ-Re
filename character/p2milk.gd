@@ -6,6 +6,9 @@ extends CharacterBody2D
 var dir = Vector2.ZERO
 var speed = 700
 
+#是否有护盾
+var is_shield=false
+
 #生命
 var health = 100
 
@@ -92,6 +95,9 @@ func get_collider():
 		return null
 
 func get_attacked():
+	if is_shield:
+		is_shield=false
+		return
 	health = health - 20
 	update_health()
 	# 受到攻击后检查是否死亡
@@ -148,3 +154,9 @@ func revive(restore_health: int = 100):
 # 返回角色是否死亡的状态
 func is_character_dead() -> bool:
 	return is_dead
+	
+	
+func add_shield():
+	is_shield=true
+	await get_tree().create_timer(3).timeout
+	is_shield=false
