@@ -106,7 +106,7 @@ func get_collider():
 
 #技能
 func attack():
-	if get_collider()!=null:
+	if get_collider()!=null && not get_collider() is TileMap:
 		if cd_timer.is_stopped():
 			cd_timer.start()
 			#延迟半秒扣血
