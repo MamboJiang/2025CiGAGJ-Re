@@ -132,7 +132,7 @@ func attack():
 			cd_timer.start()
 			#延迟半秒扣血
 			await get_tree().create_timer(0.5).timeout
-			if get_collider() != null:  # 再次检查以防目标在这半秒内消失
+			if get_collider() != null && not get_collider() is TileMap:  # 再次检查以防目标在这半秒内消失
 				get_collider().get_attacked()
 			print("attacked")
 
