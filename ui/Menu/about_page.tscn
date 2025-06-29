@@ -93,34 +93,34 @@ offset_top = 263.0
 offset_right = 377.0
 offset_bottom = 357.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 66
-text = "技能：挥砍，CD 3s"
+theme_override_font_sizes/font_size = 46
+text = "技能：挥砍，3s冷却"
 
 [node name="title3" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -192.0
-offset_top = 451.0
-offset_right = 464.0
-offset_bottom = 545.0
+offset_left = -195.0
+offset_top = 480.0
+offset_right = 461.0
+offset_bottom = 574.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 66
-text = "技能：复活队员 CD 9s"
+theme_override_font_sizes/font_size = 46
+text = "技能：复活队员，9s冷却"
 
 [node name="title4" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -81.0
-offset_top = 637.0
-offset_right = 381.0
-offset_bottom = 730.0
+offset_left = -194.0
+offset_top = 660.0
+offset_right = 314.0
+offset_bottom = 753.0
 grow_horizontal = 2
-theme_override_font_sizes/font_size = 66
-text = "技能：全体护盾 CD 3s"
+theme_override_font_sizes/font_size = 46
+text = "技能：全体护盾，3s冷却"
 
 [node name="player1intro" type="Label" parent="."]
 layout_mode = 1
