@@ -468,8 +468,10 @@ script = ExtResource("1_d2aae")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_mudp3")
-animation = &"walk_down"
+animation = &"skill"
 autoplay = "idle"
+frame = 10
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 13)
