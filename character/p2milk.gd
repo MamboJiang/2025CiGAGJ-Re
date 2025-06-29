@@ -12,6 +12,8 @@ var speed = 700
 #是否有护盾
 var is_shield=false
 
+var is_heal=false
+
 #生命
 var health = 100
 
@@ -41,6 +43,10 @@ func _physics_process(delta):
 	
 	# 如果角色死亡，停止移动
 	if is_dead:
+		return
+	
+	check_heal()
+	if is_heal:
 		return
 		
 	#显示cd
@@ -191,3 +197,14 @@ func add_shield():
 	await get_tree().create_timer(3).timeout
 	is_shield=false
 	shield_ui.hide()
+	
+func check_heal():
+	if is_dead:
+		is_heal=0
+		return
+		
+	if cd_timer.time_left>2.5:
+		playerAni.play("skill")
+		is_heal=1
+	else:
+		is_heal=0

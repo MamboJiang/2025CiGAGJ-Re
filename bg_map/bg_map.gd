@@ -17,6 +17,9 @@ extends Node2D
 @onready var p1_change_timer: Timer = $p1hero/change_timer
 @onready var p2_change_timer: Timer = $p2hero/change_timer
 
+@onready var p1_arrow: Sprite2D = $p1_arrow
+@onready var p2_arrow: Sprite2D = $p2_arrow
+
 var p1_object
 var p2_object
 
@@ -34,6 +37,34 @@ func _process(delta):
 	
 	# 检查英雄附身的角色是否死亡，如果死亡则自动下车
 	check_possessed_character_death()
+	
+	match (p1selected):
+			1:
+				p1_arrow.position=p1hero.position
+				p1_arrow.position.y-=60
+			2:
+				p1_arrow.position=p1knife.position
+				p1_arrow.position.y-=120
+			3:
+				p1_arrow.position=p1pan.position
+				p1_arrow.position.y-=100
+			4:
+				p1_arrow.position=p1milk.position
+				p1_arrow.position.y-=120
+	match (p2selected):
+			1:
+				p2_arrow.position=p2hero.position
+				p2_arrow.position.y-=60
+			2:
+				p2_arrow.position=p2knife.position
+				p2_arrow.position.y-=120
+			3:
+				p2_arrow.position=p2pan.position
+				p2_arrow.position.y-=100
+			4:
+				p2_arrow.position=p2milk.position
+				p2_arrow.position.y-=120
+				
 
 func _input(event):
 	# 检测p1change按键（1键）

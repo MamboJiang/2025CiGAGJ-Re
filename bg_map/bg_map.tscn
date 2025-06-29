@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://1ic2aejdjrtj"]
+[gd_scene load_steps=27 format=3 uid="uid://1ic2aejdjrtj"]
 
 [ext_resource type="Script" uid="uid://dkab1ojrr053s" path="res://bg_map/bg_map.gd" id="1_0evb0"]
 [ext_resource type="Texture2D" uid="uid://dycy2jkbiet5m" path="res://asset/background/newbackground.png" id="2_cl8tm"]
@@ -15,6 +15,8 @@
 [ext_resource type="Texture2D" uid="uid://cs7lbfx1y5c4" path="res://asset/ui/health/health bar.png" id="9_eruho"]
 [ext_resource type="Texture2D" uid="uid://c74ii18lh7f1q" path="res://asset/ui/health/health_blue.png" id="9_i1j5m"]
 [ext_resource type="PackedScene" uid="uid://dr5yxbkio6t01" path="res://character/p2milk.tscn" id="10_ubgvt"]
+[ext_resource type="Texture2D" uid="uid://ce1jcppvqvv7q" path="res://asset/ui/arrow/p1arrown.png" id="16_fgotj"]
+[ext_resource type="Texture2D" uid="uid://daagdfk8tios1" path="res://asset/ui/arrow/p2arrown.png" id="17_exu6r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ivxwu"]
 3:1/0 = 0
@@ -60,6 +62,12 @@ region = Rect2(32, 59, 64, 10)
 atlas = ExtResource("9_i1j5m")
 region = Rect2(35, 62, 58, 4)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_ivxwu"]
+radius = 40.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ubgvt"]
+radius = 40.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_eruho"]
 atlas = ExtResource("9_eruho")
 region = Rect2(32, 59, 64, 10)
@@ -67,12 +75,6 @@ region = Rect2(32, 59, 64, 10)
 [sub_resource type="AtlasTexture" id="AtlasTexture_syi25"]
 atlas = ExtResource("7_i1j5m")
 region = Rect2(35, 62, 58, 4)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ubgvt"]
-radius = 40.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ivxwu"]
-radius = 40.0
 
 [node name="bg_map" type="Node2D"]
 script = ExtResource("1_0evb0")
@@ -129,14 +131,21 @@ wait_time = 3.0
 one_shot = true
 
 [node name="cd_ui" type="RichTextLabel" parent="p1knife"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -25.3333
+offset_top = -1.33334
+offset_right = 14.6667
+offset_bottom = 38.6667
+scale = Vector2(1.5, 1.5)
+theme_override_colors/default_color = Color(0.450827, 0.625868, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "ab"
+horizontal_alignment = 1
 
 [node name="health_bar" type="TextureProgressBar" parent="p1knife"]
-offset_left = -32.6667
-offset_top = -67.3333
-offset_right = 31.3333
-offset_bottom = -57.3333
+offset_left = -32.0
+offset_top = -65.3333
+offset_right = 32.0
+offset_bottom = -55.3333
 texture_under = SubResource("AtlasTexture_l0c15")
 texture_progress = SubResource("AtlasTexture_i1j5m")
 texture_progress_offset = Vector2(3, 3)
@@ -144,72 +153,6 @@ texture_progress_offset = Vector2(3, 3)
 [node name="shield_ui" type="Sprite2D" parent="p1knife"]
 position = Vector2(5.33333, -1.33334)
 scale = Vector2(0.700861, 1.08288)
-texture = ExtResource("8_syi25")
-region_enabled = true
-region_rect = Rect2(273, 17, 92, 92)
-
-[node name="p2knife" parent="." instance=ExtResource("6_3s32r")]
-position = Vector2(1557, 649)
-scale = Vector2(1.5, 1.5)
-
-[node name="ShapeCast2D" type="ShapeCast2D" parent="p2knife"]
-position = Vector2(10.6667, -36)
-shape = SubResource("CircleShape2D_cl8tm")
-target_position = Vector2(0, 62)
-
-[node name="cd_timer" type="Timer" parent="p2knife"]
-wait_time = 3.0
-one_shot = true
-
-[node name="cd_ui" type="RichTextLabel" parent="p2knife"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="health_bar" type="TextureProgressBar" parent="p2knife"]
-offset_left = -22.0
-offset_top = -70.0
-offset_right = 42.0
-offset_bottom = -60.0
-texture_under = SubResource("AtlasTexture_eruho")
-texture_progress = SubResource("AtlasTexture_syi25")
-texture_progress_offset = Vector2(3, 3)
-
-[node name="shield_ui" type="Sprite2D" parent="p2knife"]
-position = Vector2(5.33333, -1.33334)
-scale = Vector2(0.700861, 1.08288)
-texture = ExtResource("8_syi25")
-region_enabled = true
-region_rect = Rect2(273, 17, 92, 92)
-
-[node name="p2pan" parent="." instance=ExtResource("7_3s32r")]
-position = Vector2(1354, 620)
-scale = Vector2(1.5, 1.5)
-
-[node name="ShapeCast2D" type="ShapeCast2D" parent="p2pan"]
-position = Vector2(0.666667, -0.666667)
-shape = SubResource("CircleShape2D_ubgvt")
-target_position = Vector2(0, 32.6667)
-
-[node name="health_bar" type="TextureProgressBar" parent="p2pan"]
-offset_left = -32.0
-offset_top = -54.0
-offset_right = 32.0
-offset_bottom = -44.0
-texture_under = SubResource("AtlasTexture_eruho")
-texture_progress = SubResource("AtlasTexture_syi25")
-texture_progress_offset = Vector2(3, 3)
-
-[node name="cd_timer" type="Timer" parent="p2pan"]
-wait_time = 3.0
-one_shot = true
-
-[node name="cd_ui" type="RichTextLabel" parent="p2pan"]
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="shield_ui" type="Sprite2D" parent="p2pan"]
-position = Vector2(-1.33332, 13.3333)
-scale = Vector2(0.763474, 1.08288)
 texture = ExtResource("8_syi25")
 region_enabled = true
 region_rect = Rect2(273, 17, 92, 92)
@@ -228,14 +171,21 @@ wait_time = 3.0
 one_shot = true
 
 [node name="cd_ui" type="RichTextLabel" parent="p1pan"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -30.0
+offset_top = 7.99997
+offset_right = 9.99998
+offset_bottom = 48.0
+scale = Vector2(1.5, 1.5)
+theme_override_colors/default_color = Color(0.450827, 0.625868, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "ab"
+horizontal_alignment = 1
 
 [node name="health_bar" type="TextureProgressBar" parent="p1pan"]
-offset_left = -32.6667
-offset_top = -67.3333
-offset_right = 31.3333
-offset_bottom = -57.3333
+offset_left = -32.0
+offset_top = -50.0
+offset_right = 32.0
+offset_bottom = -40.0
 texture_under = SubResource("AtlasTexture_l0c15")
 texture_progress = SubResource("AtlasTexture_i1j5m")
 texture_progress_offset = Vector2(3, 3)
@@ -257,24 +207,111 @@ shape = SubResource("CircleShape2D_cl8tm")
 target_position = Vector2(0.666687, 55.3333)
 
 [node name="cd_timer" type="Timer" parent="p1milk"]
-wait_time = 3.0
+wait_time = 9.0
 one_shot = true
 
 [node name="cd_ui" type="RichTextLabel" parent="p1milk"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -29.3334
+offset_top = -1.33334
+offset_right = 10.6666
+offset_bottom = 38.6667
+scale = Vector2(1.5, 1.5)
+theme_override_colors/default_color = Color(0.450827, 0.625868, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "ab"
+horizontal_alignment = 1
 
 [node name="health_bar" type="TextureProgressBar" parent="p1milk"]
 offset_left = -32.6667
-offset_top = -67.3333
+offset_top = -64.0
 offset_right = 31.3333
-offset_bottom = -57.3333
+offset_bottom = -54.0
 texture_under = SubResource("AtlasTexture_l0c15")
 texture_progress = SubResource("AtlasTexture_i1j5m")
 texture_progress_offset = Vector2(3, 3)
 
 [node name="shield_ui" type="Sprite2D" parent="p1milk"]
 position = Vector2(-3.33786e-06, -6)
+scale = Vector2(0.700861, 1.08288)
+texture = ExtResource("8_syi25")
+region_enabled = true
+region_rect = Rect2(273, 17, 92, 92)
+
+[node name="p2pan" parent="." instance=ExtResource("7_3s32r")]
+position = Vector2(1354, 620)
+scale = Vector2(1.5, 1.5)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="p2pan"]
+position = Vector2(0.666667, -0.666667)
+shape = SubResource("CircleShape2D_ubgvt")
+target_position = Vector2(0, 32.6667)
+
+[node name="health_bar" type="TextureProgressBar" parent="p2pan"]
+offset_left = -32.0
+offset_top = -46.0
+offset_right = 32.0
+offset_bottom = -36.0
+texture_under = SubResource("AtlasTexture_eruho")
+texture_progress = SubResource("AtlasTexture_syi25")
+texture_progress_offset = Vector2(3, 3)
+
+[node name="cd_timer" type="Timer" parent="p2pan"]
+wait_time = 3.0
+one_shot = true
+
+[node name="cd_ui" type="RichTextLabel" parent="p2pan"]
+offset_left = -30.0
+offset_top = 8.66666
+offset_right = 10.0
+offset_bottom = 48.6667
+scale = Vector2(1.5, 1.5)
+theme_override_colors/default_color = Color(0.966802, 0.452864, 0.487326, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "ab"
+horizontal_alignment = 1
+
+[node name="shield_ui" type="Sprite2D" parent="p2pan"]
+position = Vector2(-1.33332, 13.3333)
+scale = Vector2(0.763474, 1.08288)
+texture = ExtResource("8_syi25")
+region_enabled = true
+region_rect = Rect2(273, 17, 92, 92)
+
+[node name="p2knife" parent="." instance=ExtResource("6_3s32r")]
+position = Vector2(1557, 649)
+scale = Vector2(1.5, 1.5)
+
+[node name="ShapeCast2D" type="ShapeCast2D" parent="p2knife"]
+position = Vector2(10.6667, -36)
+shape = SubResource("CircleShape2D_cl8tm")
+target_position = Vector2(0, 62)
+
+[node name="cd_timer" type="Timer" parent="p2knife"]
+wait_time = 3.0
+one_shot = true
+
+[node name="cd_ui" type="RichTextLabel" parent="p2knife"]
+offset_left = -23.3333
+offset_top = -1.33334
+offset_right = 16.6667
+offset_bottom = 38.6667
+scale = Vector2(1.5, 1.5)
+theme_override_colors/default_color = Color(0.966802, 0.452864, 0.487326, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "ab"
+horizontal_alignment = 1
+
+[node name="health_bar" type="TextureProgressBar" parent="p2knife"]
+offset_left = -22.0
+offset_top = -63.3333
+offset_right = 42.0
+offset_bottom = -53.3333
+texture_under = SubResource("AtlasTexture_eruho")
+texture_progress = SubResource("AtlasTexture_syi25")
+texture_progress_offset = Vector2(3, 3)
+
+[node name="shield_ui" type="Sprite2D" parent="p2knife"]
+position = Vector2(5.33333, -1.33334)
 scale = Vector2(0.700861, 1.08288)
 texture = ExtResource("8_syi25")
 region_enabled = true
@@ -291,24 +328,37 @@ target_position = Vector2(0.666687, 42)
 
 [node name="health_bar" type="TextureProgressBar" parent="p2milk"]
 offset_left = -32.0
-offset_top = -66.0
+offset_top = -64.6667
 offset_right = 32.0
-offset_bottom = -56.0
+offset_bottom = -54.6667
 texture_under = SubResource("AtlasTexture_eruho")
 texture_progress = SubResource("AtlasTexture_syi25")
 texture_progress_offset = Vector2(3, 3)
 
 [node name="cd_timer" type="Timer" parent="p2milk"]
-wait_time = 3.0
+wait_time = 9.0
 one_shot = true
 
 [node name="cd_ui" type="RichTextLabel" parent="p2milk"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -30.0
+offset_top = -1.33334
+offset_right = 10.0
+offset_bottom = 38.6667
+scale = Vector2(1.5, 1.5)
+theme_override_colors/default_color = Color(0.966802, 0.452864, 0.487326, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "ab"
+horizontal_alignment = 1
 
 [node name="shield_ui" type="Sprite2D" parent="p2milk"]
-position = Vector2(-3.33786e-06, -8.66667)
+position = Vector2(0, -7.33334)
 scale = Vector2(0.700861, 1.08288)
 texture = ExtResource("8_syi25")
 region_enabled = true
 region_rect = Rect2(273, 17, 92, 92)
+
+[node name="p1_arrow" type="Sprite2D" parent="."]
+texture = ExtResource("16_fgotj")
+
+[node name="p2_arrow" type="Sprite2D" parent="."]
+texture = ExtResource("17_exu6r")
